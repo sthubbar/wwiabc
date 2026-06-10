@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology - Who&#x27;s Who in abc Conjecture Research</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<meta property="og:title" content="Methodology - Who&#x27;s Who in abc Conjecture Research">
+<meta property="og:description" content="A directory of the researchers most active on the abc conjecture, ranked from arXiv preprint output, OpenAlex citation data, and zbMATH MSC classifications.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wwiabc.org/methodology">
+<meta property="og:site_name" content="Who&#x27;s Who in abc Conjecture Research">
+<meta name="twitter:card" content="summary">
+<meta name="description" content="A directory of the researchers most active on the abc conjecture, ranked from arXiv preprint output, OpenAlex citation data, and zbMATH MSC classifications.">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand"><a href="./index.html">Who's Who in abc Conjecture Research</a></div>
+  <nav><a href="./index.html" class="">Home</a>
+<a href="./top100.html" class="">Top 100</a>
+<a href="./regions/north-america.html" class="">North America</a>
+<a href="./regions/europe.html" class="">Europe</a>
+<a href="./regions/asia.html" class="">Asia & Pacific</a>
+<a href="./in-memoriam.html" class="">In Memoriam</a>
+<a href="./genealogy.html" class="">Genealogy</a>
+<a href="./reading-list.html" class="">Reading List</a>
+<a href="./data.html" class="">Data</a>
+<a href="./methodology.html" class="nav-active">Methodology</a>
+<a href="./about.html" class="">About</a>
+<a href="./corrections.html" class="">Corrections</a></nav>
+</header>
+<main>
+<h1>Methodology</h1>
+<p class="subtitle">How the rankings are built</p>
+
+<p>This page documents how the Top 100 list is constructed, what's in the data, and what's deliberately out.</p>
+
+<h2>Data sources</h2>
+
+<table>
+<thead><tr><th>Source</th><th>What it gives</th><th>Limitations</th></tr></thead>
+<tbody>
+<tr><td><strong>arXiv</strong> (math.NT, math.CO)</td><td>Preprint-level: titles, abstracts, authors, dates, co-author graph</td><td>Biased toward people who post preprints. Senior figures who publish only in journals are undercounted.</td></tr>
+<tr><td><strong>OpenAlex</strong></td><td>Author-level: paper count, citations, affiliations, country</td><td>Concept tagging is noisy in math; surname-only matching can misidentify.</td></tr>
+<tr><td><strong>zbMATH Open</strong></td><td>Curated math review database using MSC classes 11J25, 11D75, 11J87</td><td>Coverage of older non-Western mathematicians is the best of the three sources.</td></tr>
+<tr><td><strong>Math Genealogy Project</strong></td><td>Advisor-student trees</td><td>Dissertation-era affiliations only; gaps for some non-Western mathematicians.</td></tr>
+</tbody>
+</table>
+
+<h2>Pipeline</h2>
+
+<ol>
+<li><strong>arXiv pull</strong>: 15 search terms restricted to the math.NT and math.CO categories. Title-weighting: a match in the paper title counts at full weight, abstract-only at half.</li>
+<li><strong>OpenAlex pull</strong>: phrase queries, author cap of 10 per work to remove physics megapapers. Title-weighting applied.</li>
+<li><strong>zbMATH pull</strong>: documents tagged with the MSC classes 11J25, 11D75, 11J87.</li>
+<li><strong>Merge and scoring</strong>: weighted order statistic with 70/20/10 on the best, middle, and worst of each researcher's three ranks. Lower combined score ranks higher.</li>
+<li><strong>Estimating a missing rank</strong>: missing ranks are interpolated from the nearest ranked neighbours and shown in [square brackets].</li>
+</ol>
+
+<h2>What's not in this list</h2>
+<ul>
+<li><strong>Researchers without an OpenAlex profile.</strong> The list is biased toward digitally-indexed publication output.</li>
+<li><strong>Subjective importance.</strong> We rank by output, not by depth.</li>
+</ul>
+
+</main>
+<footer>
+<p>Maintained by Steve Hubbard (<a href="mailto:admin@wwiabc.org">admin@wwiabc.org</a>). Data sources: <a href="https://arxiv.org">arXiv</a>, <a href="https://openalex.org">OpenAlex</a>, <a href="https://zbmath.org">zbMATH Open</a>, <a href="https://www.mathgenealogy.org">Mathematics Genealogy Project</a>.</p>
+<p>Last built June 2026.</p>
+</footer>
+</body>
+</html>

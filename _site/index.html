@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who&#x27;s Who in abc Conjecture Research</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<meta property="og:title" content="Who&#x27;s Who in abc Conjecture Research">
+<meta property="og:description" content="A directory of the researchers most active on the abc conjecture, ranked from arXiv preprint output, OpenAlex citation data, and zbMATH MSC classifications.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wwiabc.org/">
+<meta property="og:site_name" content="Who&#x27;s Who in abc Conjecture Research">
+<meta name="twitter:card" content="summary">
+<meta name="description" content="A directory of the researchers most active on the abc conjecture, ranked from arXiv preprint output, OpenAlex citation data, and zbMATH MSC classifications.">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand"><a href="./index.html">Who's Who in abc Conjecture Research</a></div>
+  <nav><a href="./index.html" class="nav-active">Home</a>
+<a href="./top100.html" class="">Top 100</a>
+<a href="./regions/north-america.html" class="">North America</a>
+<a href="./regions/europe.html" class="">Europe</a>
+<a href="./regions/asia.html" class="">Asia & Pacific</a>
+<a href="./in-memoriam.html" class="">In Memoriam</a>
+<a href="./genealogy.html" class="">Genealogy</a>
+<a href="./reading-list.html" class="">Reading List</a>
+<a href="./data.html" class="">Data</a>
+<a href="./methodology.html" class="">Methodology</a>
+<a href="./about.html" class="">About</a>
+<a href="./corrections.html" class="">Corrections</a></nav>
+</header>
+<main>
+<h1>Who&#x27;s Who in abc Conjecture Research</h1>
+<p class="subtitle">A directory of researchers working on the abc conjecture</p>
+
+<div class="content-block">
+<p>This site is a reference directory of the researchers most active on the abc conjecture. It catalogs the <strong>Top 100</strong> researchers, gives their institutions, and provides a <a href="reading-list.html">curated reading list</a> of recent short papers for newcomers.</p>
+</div>
+<h2>How the list is built</h2>
+<p>Three independent signals are combined into one composite ranking:</p>
+<ol>
+<li><strong>arXiv preprint output</strong>, filtered to math.NT and math.CO categories, matched against 15 search terms.</li><li><strong>OpenAlex topical citations</strong>.</li><li><strong>zbMATH Open</strong>, using the MSC subject classes (11J25, 11D75, 11J87).</li>
+</ol>
+<p>The three pipeline ranks are combined with a weighted order statistic: for each researcher the three ranks are sorted and weighted 70% on the best, 20% on the middle, and 10% on the worst. Lower is better. See the <a href="methodology.html">methodology</a> for details.</p>
+
+
+<h2>Top 100 at a glance</h2>
+<p>100 researchers, drawn from 1 countries.</p>
+
+<table><thead><tr><th>Country</th><th>Top 100 researchers</th></tr></thead><tbody><tr><td></td><td style='text-align:right'>11</td></tr></tbody></table>
+
+<div class="figure-page">
+<img src="img/10_top100_overview.png" alt="World overview map of Top 100 researchers">
+</div>
+
+<h2>Where to start</h2>
+<ul>
+<li><a href="top100.html"><strong>The Top 100</strong></a> is the canonical ranked list, sortable in your browser.</li>
+<li>Regional listings: <a href="regions/north-america.html">North America</a>, <a href="regions/europe.html">Europe</a>, <a href="regions/asia.html">Asia &amp; Pacific</a>.</li>
+<li><a href="reading-list.html"><strong>Reading list</strong></a>: short papers from 2018 onward, with clickable links.</li>
+<li><a href="data.html"><strong>Data</strong></a>: the ranked list as an open CC-BY dataset, with a citable DOI.</li>
+<li><a href="methodology.html"><strong>Methodology</strong></a>: how the data is built, audit decisions, and limitations.</li>
+</ul>
+
+
+
+</main>
+<footer>
+<p>Maintained by Steve Hubbard (<a href="mailto:admin@wwiabc.org">admin@wwiabc.org</a>). Data sources: <a href="https://arxiv.org">arXiv</a>, <a href="https://openalex.org">OpenAlex</a>, <a href="https://zbmath.org">zbMATH Open</a>, <a href="https://www.mathgenealogy.org">Mathematics Genealogy Project</a>.</p>
+<p>Last built June 2026.</p>
+</footer>
+</body>
+</html>
