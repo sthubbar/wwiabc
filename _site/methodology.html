@@ -36,34 +36,72 @@
 <h1>Methodology</h1>
 <p class="subtitle">How the rankings are built</p>
 
-<p>This page documents how the Top 100 list is constructed, what's in the data, and what's deliberately out.</p>
+<p>This page documents how the Top 100 list is constructed, what is in the data, and what is deliberately left out. The abc conjecture ranking uses the same three-source composite design as the sister Goldbach and Riemann hypothesis sites: arXiv preprint output, OpenAlex topical citations, and zbMATH MSC classifications. The abc field has a substantial arXiv presence, so the current ranking is built mainly from the arXiv signal, with OpenAlex contributing where it overlaps; the zbMATH MSC layer is being integrated.</p>
 
 <h2>Data sources</h2>
 
 <table>
 <thead><tr><th>Source</th><th>What it gives</th><th>Limitations</th></tr></thead>
 <tbody>
-<tr><td><strong>arXiv</strong> (math.NT, math.CO)</td><td>Preprint-level: titles, abstracts, authors, dates, co-author graph</td><td>Biased toward people who post preprints. Senior figures who publish only in journals are undercounted.</td></tr>
-<tr><td><strong>OpenAlex</strong></td><td>Author-level: paper count, citations, affiliations, country</td><td>Concept tagging is noisy in math; surname-only matching can misidentify.</td></tr>
-<tr><td><strong>zbMATH Open</strong></td><td>Curated math review database using MSC classes 11J25, 11D75, 11J87</td><td>Coverage of older non-Western mathematicians is the best of the three sources.</td></tr>
-<tr><td><strong>Math Genealogy Project</strong></td><td>Advisor-student trees</td><td>Dissertation-era affiliations only; gaps for some non-Western mathematicians.</td></tr>
+<tr><td><strong>arXiv</strong> (math.NT, math.AG)</td><td>Preprint-level: titles, abstracts, authors, dates, co-author graph</td><td>Biased toward researchers who post preprints. Senior figures who publish mainly in journals are undercounted.</td></tr>
+<tr><td><strong>OpenAlex</strong></td><td>Author-level: paper count, citations, affiliations, country</td><td>Concept tagging is noisy in math; surname-only matching can misidentify authors.</td></tr>
+<tr><td><strong>zbMATH Open</strong></td><td>Curated math review database; canonical author codes; editor-assigned MSC classification (MSC classes 11J25, 11D75, 11J87, 11G05)</td><td>Coverage of older non-Western mathematicians is the best of the three sources; the REST API is gated behind a one-time Terms-of-Use acceptance. This layer is being folded in.</td></tr>
 </tbody>
 </table>
 
+<h2>Search terms</h2>
+
+<p>The arXiv and OpenAlex pulls use the following 14 terms, restricted to the math.NT and math.AG categories on arXiv:</p>
+<ul>
+<li>abc conjecture</li>
+<li>Szpiro conjecture</li>
+<li>Vojta conjecture</li>
+<li>S-unit equation</li>
+<li>height inequality</li>
+<li>Belyi map</li>
+<li>Wieferich prime</li>
+<li>Thue equation</li>
+<li>inter-universal Teichmuller</li>
+<li>Nevanlinna theory arithmetic</li>
+<li>integral points on curves</li>
+<li>effective Mordell</li>
+<li>radical of integers</li>
+<li>Mason-Stothers theorem</li>
+</ul>
+
+<p>These terms were selected by a term-analysis pass on a first draft pull. Broad general-math terms (such as "Diophantine approximation") were excluded because they pulled hundreds of papers about metric Diophantine approximation (Schmidt, Jarnik, homogeneous dynamics) that have no connection to the abc conjecture. The terms above keep the corpus on the abc, Szpiro, Vojta, S-unit, and height themes.</p>
+
 <h2>Pipeline</h2>
 
+<p class="callout"><strong>Title-weighting.</strong> A paper can mention the abc conjecture without being about it, for example by citing it as a motivation or famous open problem. To reduce this noise, the arXiv and OpenAlex pipelines weight a keyword match by where it appears: a match in the paper <em>title</em> counts at full weight, and a match only in the <em>abstract</em> counts at half (a factor of 0.5). zbMATH is not title-weighted, because its documents are classified by human editors.</p>
+
 <ol>
-<li><strong>arXiv pull</strong>: 15 search terms restricted to the math.NT and math.CO categories. Title-weighting: a match in the paper title counts at full weight, abstract-only at half.</li>
-<li><strong>OpenAlex pull</strong>: phrase queries, author cap of 10 per work to remove physics megapapers. Title-weighting applied.</li>
-<li><strong>zbMATH pull</strong>: documents tagged with the MSC classes 11J25, 11D75, 11J87.</li>
-<li><strong>Merge and scoring</strong>: weighted order statistic with 70/20/10 on the best, middle, and worst of each researcher's three ranks. Lower combined score ranks higher.</li>
-<li><strong>Estimating a missing rank</strong>: missing ranks are interpolated from the nearest ranked neighbours and shown in [square brackets].</li>
+<li><strong>arXiv pull</strong>: 14 search terms restricted to the math.NT and math.AG categories. Each paper's contribution to an author is title-weighted. A co-authorship graph is built and eigenvector centrality is the second factor in an arXiv composite of <code>0.60 * pr(weighted papers) + 0.40 * pr(eigen)</code>. Authors with at least 3 topical papers qualify. The pull yielded 412 unique papers and 68 qualifying authors.</li>
+
+<li><strong>OpenAlex pull</strong>: the same 14 phrase queries, with an author cap of 10 per work to remove megapapers. Works and their citations are title-weighted. Composite: <code>0.60 * pr(weighted works) + 0.40 * pr(weighted citations)</code>. Result: 187 authors found, 18 qualifying (works at least 3).</li>
+
+<li><strong>zbMATH pull</strong>: documents tagged with the MSC classes 11J25 (Diophantine approximation, abc conjecture), 11D75 (Diophantine inequalities), 11J87 (Schmidt Subspace Theorem and generalizations), and 11G05 (elliptic curves over global fields). This pull is in progress and is being folded into the merged ranking.</li>
+
+<li><strong>Merge and scoring</strong>: the rankings are surname-deduplicated and joined. The available ranks are combined with a <strong>weighted order statistic</strong>: each researcher's ranks are sorted and weighted <code>0.70</code> on the best, <code>0.20</code> on the middle, and <code>0.10</code> on the worst. Lower combined score ranks higher. An earlier design simply summed the ranks, which punished anyone outstanding in one source but weak in another; the weighted order statistic fixes that.</li>
+
+<li><strong>Estimating a missing rank</strong>: a researcher ranked by only one pipeline is not given a flat penalty. To estimate a missing rank, we order the whole pool by a pipeline the researcher does appear in, then walk outward to the two nearest researchers above and the two nearest below who carry a real rank in the missing pipeline, and average those values. The 0.70 top weight may only land on a measured rank, so an estimate can support a score but can never be its headline signal. Estimated ranks show in [square brackets] on the Top 100 table; measured ranks show plain.</li>
+
+<li><strong>Hand-curated edits</strong>: an exclusions file removes researchers the automated pipeline surfaced in error. The merge does not hand-place any researcher; everyone earns their rank from the pipeline scores.</li>
 </ol>
 
-<h2>What's not in this list</h2>
+<h2>Audit decisions</h2>
+
+<h3>Excluded</h3>
+<p>A small number of authors surfaced by the automated pipeline are removed by hand when they are clearly off-topic (for example, researchers whose surname coincides with a term in the query set but who work in an unrelated field). The specific names are kept internal.</p>
+
+<h3>The Mochizuki IUT literature</h3>
+<p>Shinichi Mochizuki announced a claimed proof of the abc conjecture via Inter-universal Teichmuller theory in 2012. As of 2025, the proof has not been verified or accepted by the broader mathematical community. The pipeline treats Mochizuki as one researcher among many and ranks by publication activity, not by the proof claim. Mochizuki and his direct collaborators may rank lower than their publication output warrants because IUT-specific terminology does not overlap with the standard abc/Szpiro/Vojta search terms used here.</p>
+
+<h2>What is not in this list</h2>
 <ul>
-<li><strong>Researchers without an OpenAlex profile.</strong> The list is biased toward digitally-indexed publication output.</li>
-<li><strong>Subjective importance.</strong> We rank by output, not by depth.</li>
+<li><strong>Researchers without a digital footprint.</strong> The pipeline indexes arXiv well and OpenAlex moderately. Figures who publish mainly in journals are undercounted until the zbMATH MSC layer is fully integrated.</li>
+<li><strong>Subjective importance.</strong> A theorist whose entire body of work is one influential paper may rank lower than a productive researcher with many adjacent papers. The ranking measures output, not depth.</li>
+<li><strong>The full IUT community.</strong> The claimed proof literature uses specialized terminology not covered by the current search terms. This is a known gap in the current v1 build.</li>
 </ul>
 
 </main>
