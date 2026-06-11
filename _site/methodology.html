@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology - Who&#x27;s Who in abc Conjecture Research</title>
+<link rel="canonical" href="https://wwiabc.org/methodology">
 <link rel="stylesheet" href="./styles.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -81,7 +82,7 @@
 
 <li><strong>Merge and scoring</strong>: the rankings are surname-deduplicated and joined. The available ranks are combined with a <strong>weighted order statistic</strong>: each researcher's ranks are sorted and weighted <code>0.70</code> on the best, <code>0.20</code> on the middle, and <code>0.10</code> on the worst. Lower combined score ranks higher. An earlier design simply summed the ranks, which punished anyone outstanding in one source but weak in another; the weighted order statistic fixes that.</li>
 
-<li><strong>Estimating a missing rank</strong>: a researcher ranked by only one pipeline is not given a flat penalty. To estimate a missing rank, we order the whole pool by a pipeline the researcher does appear in, then walk outward to the two nearest researchers above and the two nearest below who carry a real rank in the missing pipeline, and average those values. The 0.70 top weight may only land on a measured rank, so an estimate can support a score but can never be its headline signal. Estimated ranks show in [square brackets] on the Top 100 table; measured ranks show plain.</li>
+<li><strong>Estimating a missing rank (interpolation)</strong>: a researcher ranked by only one pipeline is not given a flat penalty. To estimate a missing rank, we order the whole pool by a pipeline the researcher does appear in, then walk outward to the two nearest researchers above and the two nearest below who carry a real rank in the missing pipeline, and average those values. The 0.70 top weight may only land on a measured rank, so an estimate can support a score but can never be its headline signal. This interpolation procedure mirrors the sister sites. Estimated ranks show in [square brackets] on the Top 100 table; measured ranks show plain.</li>
 
 <li><strong>Hand-curated edits</strong>: an exclusions file removes researchers the automated pipeline surfaced in error. The merge does not hand-place any researcher; everyone earns their rank from the pipeline scores.</li>
 </ol>
