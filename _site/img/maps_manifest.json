@@ -13,13 +13,11 @@
     "#26 Forrest M. Anderson",
     "#28 Fuchs, Clemens",
     "#30 Alex Shvets",
-    "#34 Schmidt, Wolfgang M.",
     "#36 Griff gurwell",
     "#40 Mu, Quanwu",
     "#58 Urbano-Blanco, J. M.",
     "#62 German, Oleg N.",
     "#65 Dani, S. G.",
-    "#68 Jose Arnaldo B. Dris",
     "#69 Si Duc Quang",
     "#71 Thunder, Jeffrey Lin",
     "#74 Freeman, D. Eric",
@@ -31,16 +29,14 @@
     "#92 Adamczewski, Boris",
     "#93 Mueller, J.",
     "#94 Maximus Shlygin",
-    "#95 van der Poorten, Alfred J.",
     "#97 James Norman Ibbotson",
-    "#98 Zaharescu, Alexandru",
     "#100 David Zelenka"
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 67,
-      "drawn_count": 67,
+      "stated_count": 71,
+      "drawn_count": 71,
       "match": true,
       "names": [
         "István Gaál",
@@ -65,6 +61,7 @@
         "Pietro Corvaja",
         "Julie Tzu-Yueh Wang",
         "Michael A. Bennett",
+        "Schmidt, Wolfgang M.",
         "Ru, Min",
         "Harman, G.",
         "Cook, R. J.",
@@ -93,6 +90,7 @@
         "C. L. Stewart",
         "Yang-Hui He",
         "Isao Wakabayashi",
+        "Jose Arnaldo B. Dris",
         "Igor E. Shparlinski",
         "Baier, Stephan",
         "Paul Vojta",
@@ -108,23 +106,26 @@
         "Yu Yasufuku",
         "Samir Siksek",
         "Paulo Ribenboim",
+        "van der Poorten, Alfred J.",
         "Tsz Ho Chan",
+        "Zaharescu, Alexandru",
         "A. Pethö"
       ]
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 17,
-      "drawn_count": 17,
+      "stated_count": 19,
+      "drawn_count": 19,
       "match": true,
       "names": [
         "Shabnam Akhtari",
+        "Ingrid Vukusic",
         "Baker, R. C.",
         "Michael A. Bennett",
+        "Schmidt, Wolfgang M.",
         "Ru, Min",
         "John Voight",
         "Vaughan, R. C.",
-        "Wooley, Trevor D.",
         "Wade Hindes",
         "Mihalis Yannakakis",
         "Aaron Levin",
@@ -134,7 +135,8 @@
         "Liu, Huafeng",
         "Michelle Manes",
         "Claude Levesque",
-        "Paulo Ribenboim"
+        "Paulo Ribenboim",
+        "Zaharescu, Alexandru"
       ]
     },
     {
@@ -153,7 +155,6 @@
         "Ariyan Javanpeykar",
         "Brüdern, Jörg",
         "Jan-Hendrik Evertse",
-        "Ingrid Vukusic",
         "Volker Ziegler",
         "Umberto Zannier",
         "Pietro Corvaja",
@@ -161,6 +162,7 @@
         "Dimitrov, Stoyan Ivanov",
         "Amos Turchet",
         "Hartmut Monien",
+        "Wooley, Trevor D.",
         "Raimundas Vidunas",
         "Kousha Etessami",
         "Michel Waldschmidt",
@@ -182,8 +184,8 @@
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 12,
-      "drawn_count": 12,
+      "stated_count": 14,
+      "drawn_count": 14,
       "match": true,
       "names": [
         "shifa liu",
@@ -194,9 +196,11 @@
         "Ge, Wenxu",
         "Jiyoong Kim",
         "Isao Wakabayashi",
+        "Jose Arnaldo B. Dris",
         "Igor E. Shparlinski",
         "Baier, Stephan",
         "Yu Yasufuku",
+        "van der Poorten, Alfred J.",
         "Tsz Ho Chan"
       ]
     },
