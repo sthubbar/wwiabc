@@ -1,19 +1,17 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 64,
+  "n_placed": 68,
   "n_unplaced_no_geocode": 1,
-  "n_unplaced_no_institution": 35,
+  "n_unplaced_no_institution": 31,
   "unplaced": [
     "#74 Alex Samuel Bamunoba [Lira Hospital]",
     "#5 Lukas Cain",
     "#7 Rosales, J. C.",
-    "#13 Bugeaud, Yann",
     "#14 Vlasie Catalin Mircea",
     "#17 Vaaler, Jeffrey D.",
     "#19 Mei Shenglin梅生林",
     "#22 Forrest Forrest M. Anderson",
-    "#24 Fuchs, Clemens",
     "#26 Alex Shvets",
     "#32 Griff gurwell",
     "#36 Mu, Quanwu",
@@ -23,7 +21,6 @@
     "#58 Si Duc Quang",
     "#60 Thunder, Jeffrey Lin",
     "#63 Freeman, D. Eric",
-    "#69 Kumar, Veekesh",
     "#73 Kovalevskaya, È. I.",
     "#76 García-Sánchez, P. A.",
     "#78 Victor Volfson",
@@ -34,7 +31,6 @@
     "#88 Yan, QiMing",
     "#89 Tichy, Robert F.",
     "#90 Mignotte, Maurice",
-    "#91 Amir Akbary",
     "#92 Bean, Michael A.",
     "#94 Moshchevitin, Nikolai G.",
     "#97 Vasco, P.",
@@ -45,8 +41,8 @@
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 64,
-      "drawn_count": 64,
+      "stated_count": 68,
+      "drawn_count": 68,
       "match": true,
       "names": [
         "István Gaál",
@@ -59,12 +55,14 @@
         "Tobias Hilgart",
         "Ariyan Javanpeykar",
         "Brüdern, Jörg",
+        "Bugeaud, Yann",
         "Jan-Hendrik Evertse",
         "Ingrid Vukusic",
         "Li, Weiping",
         "Volker Ziegler",
         "Wang, Tianze",
         "Umberto Zannier",
+        "Fuchs, Clemens",
         "Baker, R. C.",
         "Pietro Corvaja",
         "Julie Tzu-Yueh Wang",
@@ -100,6 +98,7 @@
         "Andreas Wenz",
         "Michelle Manes",
         "David Berghaus",
+        "Kumar, Veekesh",
         "Andrew R. Booker",
         "Danylo Radchenko",
         "Claude Levesque",
@@ -110,15 +109,17 @@
         "Zaharescu, Alexandru",
         "A. Pethö",
         "Kunrui Yu",
+        "Amir Akbary",
         "Constantin M. Petridi",
         "Soroosh Yazdani",
         "Karsten Müller"
-      ]
+      ],
+      "unplaced_no_geocode_in_region": 1
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 21,
-      "drawn_count": 21,
+      "stated_count": 22,
+      "drawn_count": 22,
       "match": true,
       "names": [
         "Shabnam Akhtari",
@@ -141,13 +142,15 @@
         "Claude Levesque",
         "Paulo Ribenboim",
         "Zaharescu, Alexandru",
+        "Amir Akbary",
         "Soroosh Yazdani"
-      ]
+      ],
+      "unplaced_no_geocode_in_region": 0
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 28,
-      "drawn_count": 28,
+      "stated_count": 30,
+      "drawn_count": 30,
       "match": true,
       "names": [
         "István Gaál",
@@ -156,9 +159,11 @@
         "Tobias Hilgart",
         "Ariyan Javanpeykar",
         "Brüdern, Jörg",
+        "Bugeaud, Yann",
         "Jan-Hendrik Evertse",
         "Volker Ziegler",
         "Umberto Zannier",
+        "Fuchs, Clemens",
         "Pietro Corvaja",
         "Harman, G.",
         "Dimitrov, Stoyan Ivanov",
@@ -178,12 +183,13 @@
         "A. Pethö",
         "Constantin M. Petridi",
         "Karsten Müller"
-      ]
+      ],
+      "unplaced_no_geocode_in_region": 0
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 13,
-      "drawn_count": 13,
+      "stated_count": 14,
+      "drawn_count": 14,
       "match": true,
       "names": [
         "shifa liu",
@@ -196,10 +202,12 @@
         "Jose Arnaldo B. Dris",
         "Igor E. Shparlinski",
         "Baier, Stephan",
+        "Kumar, Veekesh",
         "Yu Yasufuku",
         "Tsz Ho Chan",
         "Kunrui Yu"
-      ]
+      ],
+      "unplaced_no_geocode_in_region": 0
     },
     {
       "file": "14_top100_other.png",
@@ -209,11 +217,12 @@
       "names": [
         "Florian Luca",
         "Hector Pasten"
-      ]
+      ],
+      "unplaced_no_geocode_in_region": 1
     }
   ],
   "geocode_sources": {
-    "openalex": 39,
-    "legacy_gb_cache": 25
+    "openalex": 41,
+    "legacy_gb_cache": 27
   }
 }
