@@ -1,7 +1,11 @@
 {
   "site": "abc",
   "n_top": 100,
+  "n_placed": 64,
+  "n_unplaced_no_geocode": 1,
+  "n_unplaced_no_institution": 35,
   "unplaced": [
+    "#74 Alex Samuel Bamunoba [Lira Hospital]",
     "#5 Lukas Cain",
     "#7 Rosales, J. C.",
     "#13 Bugeaud, Yann",
@@ -41,8 +45,8 @@
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 65,
-      "drawn_count": 65,
+      "stated_count": 64,
+      "drawn_count": 64,
       "match": true,
       "names": [
         "István Gaál",
@@ -99,7 +103,6 @@
         "Andrew R. Booker",
         "Danylo Radchenko",
         "Claude Levesque",
-        "Alex Samuel Bamunoba",
         "Yu Yasufuku",
         "Samir Siksek",
         "Paulo Ribenboim",
@@ -200,14 +203,17 @@
     },
     {
       "file": "14_top100_other.png",
-      "stated_count": 3,
-      "drawn_count": 3,
+      "stated_count": 2,
+      "drawn_count": 2,
       "match": true,
       "names": [
         "Florian Luca",
-        "Hector Pasten",
-        "Alex Samuel Bamunoba"
+        "Hector Pasten"
       ]
     }
-  ]
+  ],
+  "geocode_sources": {
+    "openalex": 39,
+    "legacy_gb_cache": 25
+  }
 }
