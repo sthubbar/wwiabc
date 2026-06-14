@@ -1,9 +1,9 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 68,
+  "n_placed": 71,
   "n_unplaced_no_geocode": 1,
-  "n_unplaced_no_institution": 31,
+  "n_unplaced_no_institution": 28,
   "unplaced": [
     "#74 Alex Samuel Bamunoba [Lira Hospital]",
     "#5 Lukas Cain",
@@ -22,27 +22,24 @@
     "#60 Thunder, Jeffrey Lin",
     "#63 Freeman, D. Eric",
     "#73 Kovalevskaya, È. I.",
-    "#76 García-Sánchez, P. A.",
-    "#78 Victor Volfson",
-    "#80 Adamczewski, Boris",
-    "#81 Mueller, J.",
-    "#83 James Norman Ibbotson",
+    "#77 García-Sánchez, P. A.",
+    "#79 Victor Volfson",
+    "#81 Adamczewski, Boris",
+    "#82 Mueller, J.",
+    "#84 James Norman Ibbotson",
     "#87 Margulis, Gregory",
     "#88 Yan, QiMing",
-    "#89 Tichy, Robert F.",
-    "#90 Mignotte, Maurice",
-    "#92 Bean, Michael A.",
+    "#90 Tichy, Robert F.",
+    "#91 Mignotte, Maurice",
+    "#93 Bean, Michael A.",
     "#94 Moshchevitin, Nikolai G.",
-    "#97 Vasco, P.",
-    "#98 Heintze, Sebastian",
-    "#99 Michael Taktikos",
-    "#100 Mahler, Kurt"
+    "#99 Vasco, P."
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 68,
-      "drawn_count": 68,
+      "stated_count": 71,
+      "drawn_count": 71,
       "match": true,
       "names": [
         "István Gaál",
@@ -65,8 +62,8 @@
         "Fuchs, Clemens",
         "Baker, R. C.",
         "Pietro Corvaja",
-        "Julie Tzu-Yueh Wang",
         "Michael A. Bennett",
+        "Julie Tzu-Yueh Wang",
         "Schmidt, Wolfgang M.",
         "Ru, Min",
         "Harman, G.",
@@ -78,8 +75,8 @@
         "Vaughan, R. C.",
         "Wooley, Trevor D.",
         "Raimundas Vidunas",
-        "Michel Waldschmidt",
         "Wade Hindes",
+        "Michel Waldschmidt",
         "Akinari Hoshi",
         "Aaron Levin",
         "Ge, Wenxu",
@@ -103,23 +100,26 @@
         "Danylo Radchenko",
         "Claude Levesque",
         "Yu Yasufuku",
+        "Tsz Ho Chan",
         "Samir Siksek",
         "Paulo Ribenboim",
-        "Tsz Ho Chan",
         "Zaharescu, Alexandru",
         "A. Pethö",
         "Kunrui Yu",
-        "Amir Akbary",
         "Constantin M. Petridi",
+        "Karsten Müller",
+        "Amir Akbary",
+        "Wayne Peng",
         "Soroosh Yazdani",
-        "Karsten Müller"
+        "Ruiwen Dong",
+        "Kirti Joshi"
       ],
       "unplaced_no_geocode_in_region": 1
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 22,
-      "drawn_count": 22,
+      "stated_count": 24,
+      "drawn_count": 24,
       "match": true,
       "names": [
         "Shabnam Akhtari",
@@ -143,14 +143,16 @@
         "Paulo Ribenboim",
         "Zaharescu, Alexandru",
         "Amir Akbary",
-        "Soroosh Yazdani"
+        "Wayne Peng",
+        "Soroosh Yazdani",
+        "Kirti Joshi"
       ],
       "unplaced_no_geocode_in_region": 0
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 30,
-      "drawn_count": 30,
+      "stated_count": 31,
+      "drawn_count": 31,
       "match": true,
       "names": [
         "István Gaál",
@@ -182,7 +184,8 @@
         "Samir Siksek",
         "A. Pethö",
         "Constantin M. Petridi",
-        "Karsten Müller"
+        "Karsten Müller",
+        "Ruiwen Dong"
       ],
       "unplaced_no_geocode_in_region": 0
     },
@@ -222,7 +225,7 @@
     }
   ],
   "geocode_sources": {
-    "openalex": 41,
-    "legacy_gb_cache": 27
+    "openalex": 43,
+    "legacy_gb_cache": 28
   }
 }
