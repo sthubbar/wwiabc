@@ -1,9 +1,9 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 68,
+  "n_placed": 70,
   "n_unplaced_no_geocode": 4,
-  "n_unplaced_no_institution": 28,
+  "n_unplaced_no_institution": 26,
   "unplaced": [
     "#24 Julie Tzu-Yueh Wang [Academia Sinica]",
     "#55 Paulo Ribenboim [Queen's University, Kingston, Canada]",
@@ -13,7 +13,6 @@
     "#5 Weiping Li",
     "#10 Lukas Cain",
     "#12 Vaaler, Jeffrey D.",
-    "#14 Tianze Wang",
     "#21 Vlasie Catalin Mircea",
     "#25 Mei Shenglin梅生林",
     "#29 Forrest Forrest M. Anderson",
@@ -27,7 +26,6 @@
     "#64 Thunder, Jeffrey Lin",
     "#69 Freeman, D. Eric",
     "#73 Kovalevskaya, È. I.",
-    "#75 Huafeng Liu",
     "#76 Victor Volfson",
     "#77 García-Sánchez, P. A.",
     "#81 Mueller, J.",
@@ -41,8 +39,8 @@
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 68,
-      "drawn_count": 68,
+      "stated_count": 70,
+      "drawn_count": 70,
       "match": true,
       "names": [
         "István Gaál",
@@ -54,6 +52,7 @@
         "Brüdern, Jörg",
         "Jan-Hendrik Evertse",
         "László Remete",
+        "Tianze Wang",
         "Tobias Hilgart",
         "Baker, R. C.",
         "Umberto Zannier",
@@ -97,6 +96,7 @@
         "David Berghaus",
         "Kumar, Veekesh",
         "Danylo Radchenko",
+        "Huafeng Liu",
         "Wayne Peng",
         "Constantin M. Petridi",
         "Claude Levesque",
@@ -118,8 +118,8 @@
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 23,
-      "drawn_count": 23,
+      "stated_count": 25,
+      "drawn_count": 25,
       "match": true,
       "names": [
         "Shabnam Akhtari",
@@ -137,6 +137,7 @@
         "C. L. Stewart",
         "Michelle Manes",
         "Paul Vojta",
+        "Huafeng Liu",
         "Wayne Peng",
         "Claude Levesque",
         "Kirti Joshi",
@@ -144,7 +145,8 @@
         "Nicole Looper",
         "Amir Akbary",
         "M. Ram Murty",
-        "Soroosh Yazdani"
+        "Soroosh Yazdani",
+        "Vesselin Dimitrov"
       ],
       "unplaced_no_geocode_in_region": 2
     },
@@ -195,6 +197,7 @@
       "drawn_count": 11,
       "match": true,
       "names": [
+        "Tianze Wang",
         "Cook, R. J.",
         "Akinari Hoshi",
         "Ge, Wenxu",
@@ -204,8 +207,7 @@
         "Baier, Stephan",
         "Kumar, Veekesh",
         "Yu Yasufuku",
-        "Kunrui Yu",
-        "Vesselin Dimitrov"
+        "Kunrui Yu"
       ],
       "unplaced_no_geocode_in_region": 1
     },
@@ -222,7 +224,7 @@
     }
   ],
   "geocode_sources": {
-    "openalex": 38,
-    "legacy_gb_cache": 30
+    "openalex": 39,
+    "legacy_gb_cache": 31
   }
 }
