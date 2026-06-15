@@ -59,6 +59,31 @@ $(document).ready(function() {
 });
 </script>
 
+<h2 style="margin-top:2em">Most cited (all time)</h2>
+<p>The ten most-cited Mathematics works on the abc conjecture, by citation count in OpenAlex.
+Results are filtered to the Mathematics field (OpenAlex field 26) and ranked by total citations.</p>
+
+<table id="mc" class="display compact stripe hover" style="width:100%">
+<thead><tr><th>#</th><th>Title</th><th>Authors</th><th>Year</th><th>Citations</th></tr></thead>
+<tbody>
+<tr><td style='text-align:center'>1</td><td><a href="https://doi.org/10.1016/0022-314x(88)90019-4">Wieferich&#x27;s criterion and the abc-conjecture</a></td><td>Joseph H. Silverman</td><td>1988</td><td style='text-align:right'>191 citations</td></tr>
+<tr><td style='text-align:center'>2</td><td><a href="https://doi.org/10.1016/0022-314x(89)90014-0">On the practical solution of the Thue equation</a></td><td>Nikos Tzanakis; B.M.M. de Weger</td><td>1989</td><td style='text-align:right'>156 citations</td></tr>
+<tr><td style='text-align:center'>3</td><td><a href="https://doi.org/10.1006/jnth.1996.0129">Solving Thue Equations of High Degree</a></td><td>Yuri Bilu; Guillaume Hanrot</td><td>1996</td><td style='text-align:right'>111 citations</td></tr>
+<tr><td style='text-align:center'>4</td><td><a href="https://doi.org/10.4064/aa-74-3-273-292">Bounds for the solutions of Thue-Mahler equations and norm form equations</a></td><td>Yann Bugeaud; Kálmán Győry</td><td>1996</td><td style='text-align:right'>84 citations</td></tr>
+<tr><td style='text-align:center'>5</td><td><a href="https://doi.org/10.1090/s0894-0347-1991-1119199-x">On the number of solutions of polynomial congruences and Thue equations</a></td><td>C. L. Stewart</td><td>1991</td><td style='text-align:right'>83 citations</td></tr>
+<tr><td style='text-align:center'>6</td><td><a href="https://doi.org/10.4064/aa123-1-2">Bounds for the solutions of S-unit equations and decomposable form equations</a></td><td>Kálmán Győry; Kunrui Yu</td><td>2006</td><td style='text-align:right'>71 citations</td></tr>
+<tr><td style='text-align:center'>7</td><td><a href="https://doi.org/10.1017/cbo9780511897184.010">&lt;i&gt;S&lt;/i&gt;-unit equations and their applications</a></td><td>Jan‐Hendrik Evertse; Kálmán Győry; C. L. Stewart; R. Tijdeman</td><td>1988</td><td style='text-align:right'>64 citations</td></tr>
+<tr><td style='text-align:center'>8</td><td><a href="https://doi.org/10.1007/bf01233421">S-unit equations over number fields</a></td><td>Hans Peter Schlickewei</td><td>1990</td><td style='text-align:right'>61 citations</td></tr>
+<tr><td style='text-align:center'>9</td><td><a href="https://openalex.org/W2575592185">How to explicitly solve a Thue-Mahler equation</a></td><td>Nikos Tzanakis; de Bmm Benne Weger</td><td>1992</td><td style='text-align:right'>53 citations</td></tr>
+<tr><td style='text-align:center'>10</td><td><a href="https://doi.org/10.1017/s0305004100061235">The &lt;i&gt;S&lt;/i&gt;-unit equation over function fields</a></td><td>Joseph H. Silverman</td><td>1984</td><td style='text-align:right'>44 citations</td></tr>
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+  $('#mc').DataTable({ pageLength: 10, lengthMenu: [10, 25], order: [[4, 'desc']] });
+});
+</script>
+
 </main>
 <footer>
 <p>Maintained by Steve Hubbard (<a href="mailto:admin@wwiabc.org">admin@wwiabc.org</a>). Data sources: <a href="https://arxiv.org">arXiv</a>, <a href="https://openalex.org">OpenAlex</a>, <a href="https://zbmath.org">zbMATH Open</a>, <a href="https://www.mathgenealogy.org">Mathematics Genealogy Project</a>.</p>
