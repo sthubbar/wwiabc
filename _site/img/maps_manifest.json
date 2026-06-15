@@ -1,46 +1,43 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 70,
-  "n_unplaced_no_geocode": 4,
-  "n_unplaced_no_institution": 26,
+  "n_placed": 73,
+  "n_unplaced_no_geocode": 27,
+  "n_unplaced_no_institution": 0,
   "unplaced": [
+    "#2 Rosales, J. C. [University of Granada]",
+    "#5 Weiping Li [-]",
+    "#10 Lukas Cain [-]",
+    "#12 Vaaler, Jeffrey D. [University of Texas at Austin]",
+    "#14 Tianze Wang [Henan Academy of Sciences]",
+    "#21 Vlasie Catalin Mircea [-]",
     "#24 Julie Tzu-Yueh Wang [Academia Sinica]",
+    "#25 Mei Shenglin梅生林 [-]",
+    "#29 Forrest Forrest M. Anderson [-]",
+    "#32 Alex Shvets [-]",
+    "#34 Griff gurwell [-]",
+    "#39 Mu, Quanwu [Xian Polytechnic University]",
+    "#51 Urbano-Blanco, J. M. [University of Granada]",
+    "#54 Dani, S. G. [UM-DAE Centre for Excellence in Basic Sciences]",
     "#55 Paulo Ribenboim [Queen's University, Kingston, Canada]",
+    "#61 Si Duc Quang [Hanoi National University of Education]",
+    "#64 Thunder, Jeffrey Lin [Northern Illinois University]",
     "#67 Tsz Ho Chan [Kennesaw State University]",
+    "#69 Freeman, D. Eric [-]",
+    "#73 Kovalevskaya, È. I. [-]",
     "#74 Alex Samuel Bamunoba [Makerere University]",
-    "#2 Rosales, J. C.",
-    "#5 Weiping Li",
-    "#10 Lukas Cain",
-    "#12 Vaaler, Jeffrey D.",
-    "#21 Vlasie Catalin Mircea",
-    "#25 Mei Shenglin梅生林",
-    "#29 Forrest Forrest M. Anderson",
-    "#32 Alex Shvets",
-    "#34 Griff gurwell",
-    "#39 Mu, Quanwu",
-    "#51 Urbano-Blanco, J. M.",
-    "#53 German, Oleg N.",
-    "#54 Dani, S. G.",
-    "#61 Si Duc Quang",
-    "#64 Thunder, Jeffrey Lin",
-    "#69 Freeman, D. Eric",
-    "#73 Kovalevskaya, È. I.",
-    "#76 Victor Volfson",
-    "#77 García-Sánchez, P. A.",
-    "#81 Mueller, J.",
-    "#86 James Norman Ibbotson",
-    "#88 Adamczewski, Boris",
-    "#92 Margulis, Gregory",
-    "#95 Yan, QiMing",
-    "#98 Mignotte, Maurice",
-    "#100 Moshchevitin, Nikolai G."
+    "#75 Huafeng Liu [Shandong Normal University]",
+    "#76 Victor Volfson [-]",
+    "#77 García-Sánchez, P. A. [University of Granada]",
+    "#86 James Norman Ibbotson [-]",
+    "#87 Karsten Müller [-]",
+    "#98 Mignotte, Maurice [Université de Strasbourg]"
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 70,
-      "drawn_count": 70,
+      "stated_count": 73,
+      "drawn_count": 73,
       "match": true,
       "names": [
         "István Gaál",
@@ -52,7 +49,6 @@
         "Brüdern, Jörg",
         "Jan-Hendrik Evertse",
         "László Remete",
-        "Tianze Wang",
         "Tobias Hilgart",
         "Baker, R. C.",
         "Umberto Zannier",
@@ -83,6 +79,7 @@
         "Abdelmajid Ben Hadj Salem",
         "Yang-Hui He",
         "C. L. Stewart",
+        "German, Oleg N.",
         "Isao Wakabayashi",
         "Dominik Barth",
         "Jose Arnaldo B. Dris",
@@ -96,25 +93,28 @@
         "David Berghaus",
         "Kumar, Veekesh",
         "Danylo Radchenko",
-        "Huafeng Liu",
         "Wayne Peng",
         "Constantin M. Petridi",
         "Claude Levesque",
+        "Mueller, J.",
         "Ruiwen Dong",
         "A. Pethö",
         "Yu Yasufuku",
         "Kunrui Yu",
-        "Karsten Müller",
+        "Adamczewski, Boris",
         "Kirti Joshi",
         "Zaharescu, Alexandru",
         "Saša Novaković",
+        "Margulis, Gregory",
         "Nicole Looper",
         "Amir Akbary",
+        "Yan, QiMing",
         "M. Ram Murty",
         "Soroosh Yazdani",
-        "Vesselin Dimitrov"
+        "Vesselin Dimitrov",
+        "Moshchevitin, Nikolai G."
       ],
-      "unplaced_no_geocode_in_region": 4
+      "unplaced_no_geocode_in_region": 27
     },
     {
       "file": "11_top100_north_america.png",
@@ -137,23 +137,23 @@
         "C. L. Stewart",
         "Michelle Manes",
         "Paul Vojta",
-        "Huafeng Liu",
-        "Wayne Peng",
         "Claude Levesque",
+        "Mueller, J.",
         "Kirti Joshi",
         "Zaharescu, Alexandru",
+        "Margulis, Gregory",
         "Nicole Looper",
         "Amir Akbary",
         "M. Ram Murty",
         "Soroosh Yazdani",
         "Vesselin Dimitrov"
       ],
-      "unplaced_no_geocode_in_region": 2
+      "unplaced_no_geocode_in_region": 4
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 32,
-      "drawn_count": 32,
+      "stated_count": 34,
+      "drawn_count": 34,
       "match": true,
       "names": [
         "István Gaál",
@@ -177,6 +177,7 @@
         "Irene I. Bouw",
         "Ozlem Ejder",
         "Yang-Hui He",
+        "German, Oleg N.",
         "Dominik Barth",
         "Andreas Wenz",
         "Andrew R. Booker",
@@ -186,18 +187,18 @@
         "Constantin M. Petridi",
         "Ruiwen Dong",
         "A. Pethö",
-        "Karsten Müller",
-        "Saša Novaković"
+        "Adamczewski, Boris",
+        "Saša Novaković",
+        "Moshchevitin, Nikolai G."
       ],
-      "unplaced_no_geocode_in_region": 0
+      "unplaced_no_geocode_in_region": 6
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 11,
-      "drawn_count": 11,
+      "stated_count": 12,
+      "drawn_count": 12,
       "match": true,
       "names": [
-        "Tianze Wang",
         "Cook, R. J.",
         "Akinari Hoshi",
         "Ge, Wenxu",
@@ -206,10 +207,12 @@
         "Igor E. Shparlinski",
         "Baier, Stephan",
         "Kumar, Veekesh",
+        "Wayne Peng",
         "Yu Yasufuku",
-        "Kunrui Yu"
+        "Kunrui Yu",
+        "Yan, QiMing"
       ],
-      "unplaced_no_geocode_in_region": 1
+      "unplaced_no_geocode_in_region": 7
     },
     {
       "file": "14_top100_other.png",
@@ -220,11 +223,11 @@
         "Florian Luca",
         "Hector Pasten"
       ],
-      "unplaced_no_geocode_in_region": 1
+      "unplaced_no_geocode_in_region": 10
     }
   ],
   "geocode_sources": {
-    "openalex": 39,
-    "legacy_gb_cache": 31
+    "openalex": 37,
+    "legacy_gb_cache": 36
   }
 }
