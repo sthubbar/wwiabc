@@ -1,15 +1,14 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 74,
-  "n_unplaced_no_geocode": 26,
+  "n_placed": 76,
+  "n_unplaced_no_geocode": 24,
   "n_unplaced_no_institution": 0,
   "unplaced": [
     "#2 Rosales, J. C. [University of Granada]",
     "#5 Weiping Li [-]",
     "#9 Lukas Cain [-]",
     "#12 Vaaler, Jeffrey D. [University of Texas at Austin]",
-    "#14 Tianze Wang [Henan Academy of Sciences]",
     "#20 Vlasie Catalin Mircea [-]",
     "#24 Mei Shenglin梅生林 [-]",
     "#25 Julie Tzu-Yueh Wang [Academia Sinica]",
@@ -25,7 +24,6 @@
     "#70 Freeman, D. Eric [-]",
     "#72 Victor Volfson [-]",
     "#73 Kovalevskaya, È. I. [-]",
-    "#75 Huafeng Liu [Shandong Normal University]",
     "#78 James Norman Ibbotson [-]",
     "#80 García-Sánchez, P. A. [University of Granada]",
     "#85 Karsten Müller [-]",
@@ -35,8 +33,8 @@
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 74,
-      "drawn_count": 74,
+      "stated_count": 76,
+      "drawn_count": 76,
       "match": true,
       "names": [
         "István Gaál",
@@ -48,6 +46,7 @@
         "Brüdern, Jörg",
         "Jan-Hendrik Evertse",
         "László Remete",
+        "Tianze Wang",
         "Tobias Hilgart",
         "Baker, R. C.",
         "Volker Ziegler",
@@ -93,6 +92,7 @@
         "Samir Siksek",
         "Kumar, Veekesh",
         "Constantin M. Petridi",
+        "Huafeng Liu",
         "A. Pethö",
         "Kunrui Yu",
         "Wayne Peng",
@@ -114,7 +114,7 @@
         "Frédéric Campana",
         "Moshchevitin, Nikolai G."
       ],
-      "unplaced_no_geocode_in_region": 26
+      "unplaced_no_geocode_in_region": 24
     },
     {
       "file": "11_top100_north_america.png",
@@ -196,10 +196,11 @@
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 12,
-      "drawn_count": 12,
+      "stated_count": 14,
+      "drawn_count": 14,
       "match": true,
       "names": [
+        "Tianze Wang",
         "Cook, R. J.",
         "Akinari Hoshi",
         "Ge, Wenxu",
@@ -208,12 +209,13 @@
         "Igor E. Shparlinski",
         "Baier, Stephan",
         "Kumar, Veekesh",
+        "Huafeng Liu",
         "Kunrui Yu",
         "Wayne Peng",
         "Yu Yasufuku",
         "Yan, QiMing"
       ],
-      "unplaced_no_geocode_in_region": 7
+      "unplaced_no_geocode_in_region": 5
     },
     {
       "file": "14_top100_other.png",
@@ -229,6 +231,7 @@
   ],
   "geocode_sources": {
     "openalex": 38,
-    "legacy_gb_cache": 36
+    "legacy_gb_cache": 36,
+    "verified:2026-06-15(Claude,web; main campus)": 2
   }
 }
