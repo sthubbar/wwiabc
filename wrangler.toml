@@ -1,0 +1,6 @@
+name = "wwiabc"
+compatibility_date = "2026-06-07"
+
+[assets]
+directory = "./_site"
+not_found_handling = "404-page"
