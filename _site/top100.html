@@ -57,14 +57,16 @@
 
 
 <details class="table-details"><summary>Table Details</summary>
-<p class="callout"><em>arXiv rank</em>, <em>OA rank</em>, and <em>zbMATH rank</em> are the researcher's position in the composite score for each of three pipelines. For arXiv and OpenAlex a keyword match in a paper title counts at full weight and an abstract-only mention at half (A=0.5), so papers that only cite the abc conjecture in passing are discounted; each composite is then 60% weighted paper count + 40% network or citation signal. zbMATH uses the MSC classes 11J25, 11D75, 11J87. The overall rank combines the three with a weighted order statistic, 70/20/10 on each researcher's best, middle and worst of the three ranks. A value in [square brackets] is an interpolated estimate; a plain number is measured. See the <a href="methodology.html">methodology</a> for details.</p></details>
+<p class="td-lead"><strong>Columns</strong></p>
+<ul class="col-glossary"><li><strong>#</strong> overall rank (lower is better)</li><li><strong>Name</strong> the researcher</li><li><strong>Institution</strong> current affiliation</li><li><strong>Ctry</strong> country</li><li><strong>aX</strong> arXiv rank</li><li><strong>OA</strong> OpenAlex rank</li><li><strong>zM</strong> zbMATH rank</li><li><strong>h</strong> h-index (citation impact)</li><li><strong>Source</strong> databases that list them</li><li><strong>Frm / To</strong> first and last active year</li></ul>
+<p><strong>How it works.</strong> arXiv, OpenAlex and zbMATH each rank a researcher; the three ranks merge into one, weighted toward each person's strongest. Recent work counts more. Lower is better. Click any header to sort. A rank in [brackets] is an estimate, not measured. <a href="methodology.html">Full method</a>.</p></details>
 
 <div class="tablefilters" style="margin:0 0 12px;display:flex;gap:22px;flex-wrap:wrap;align-items:center">
   <label>Country <select id="fltCountry"><option value="">All</option></select></label>
   <label>Source <select id="fltSource"><option value="">All</option></select></label>
 </div>
 <table id="top100tbl" class="display compact stripe hover" style="width:100%">
-<thead><tr><th title="Overall rank">#</th><th>Name</th><th>Institution</th><th title="Country">Ctry</th><th title="arXiv pipeline rank">arXiv</th><th title="OpenAlex pipeline rank">OA</th><th title="zbMATH pipeline rank">zM</th><th title="h-index">h-idx</th><th>Source</th><th title="First active year">From</th><th title="Last active year">Till</th></tr></thead>
+<thead><tr><th title="Overall rank">#</th><th>Name</th><th>Institution</th><th title="Country">Ctry</th><th title="arXiv pipeline rank">aX</th><th title="OpenAlex pipeline rank">OA</th><th title="zbMATH pipeline rank">zM</th><th title="h-index">h</th><th>Source</th><th title="First active year">Frm</th><th title="Last active year">To</th></tr></thead>
 <tbody>
 <tr><td>1</td><td><a href="people/kalman-gyory.html">Kálmán Győry</a></td><td>University of Debrecen</td><td>HU</td><td data-order="23">23</td><td data-order="2">2</td><td data-order="8">8</td><td data-order="24">24</td><td>all_three</td><td>2005</td><td>2005</td></tr>
 <tr><td>2</td><td><a href="people/istvan-gaal.html">István Gaál</a></td><td>University of Debrecen</td><td>HU</td><td data-order="2">2</td><td data-order="3">3</td><td data-order="39">39</td><td data-order="19">19</td><td>all_three</td><td>1988</td><td>2021</td></tr>
