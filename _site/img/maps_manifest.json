@@ -1,26 +1,23 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 90,
-  "n_unplaced_no_geocode": 10,
+  "n_placed": 93,
+  "n_unplaced_no_geocode": 7,
   "n_unplaced_no_institution": 0,
   "unplaced": [
     "#12 Weiping Li [-]",
-    "#45 Alain Togbé [Purdue University Northwest]",
     "#56 D. Eric Freeman [-]",
-    "#68 Borka Jadrijević [University of Split]",
     "#78 Karsten Müller [-]",
     "#80 Michael A. Bean [-]",
     "#82 Philipp Habegger [University of Basel]",
     "#86 P. Vasco [-]",
-    "#88 Paul M. Voutier [-]",
-    "#96 Shinichi Mochizuki [Kyoto University]"
+    "#88 Paul M. Voutier [-]"
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 90,
-      "drawn_count": 90,
+      "stated_count": 93,
+      "drawn_count": 93,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -66,6 +63,7 @@
         "Ozlem Ejder",
         "Oleg N. German",
         "S. G. Dani",
+        "Alain Togbé",
         "Wolfgang M. Schmidt",
         "Volker Ziegler",
         "Dominik Barth",
@@ -87,6 +85,7 @@
         "P. A. García-Sánchez",
         "Irene I. Bouw",
         "J. Mueller",
+        "Borka Jadrijević",
         "Wayne Peng",
         "Boris Adamczewski",
         "Gregory Margulis",
@@ -109,17 +108,18 @@
         "Dan Abramovich",
         "Kurt Mahler",
         "Robert F. Tichy",
+        "Shinichi Mochizuki",
         "M. N. Huxley",
         "Benjamin Matschke",
         "Alina Ostafe",
         "Anthony Várilly-Alvarado"
       ],
-      "unplaced_no_geocode_in_region": 10
+      "unplaced_no_geocode_in_region": 7
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 29,
-      "drawn_count": 29,
+      "stated_count": 30,
+      "drawn_count": 30,
       "match": true,
       "names": [
         "Shabnam Akhtari",
@@ -132,6 +132,7 @@
         "Kirti Joshi",
         "Trevor D. Wooley",
         "Min Ru",
+        "Alain Togbé",
         "Wolfgang M. Schmidt",
         "Cameron L. Stewart",
         "Jeffrey Lin Thunder",
@@ -152,12 +153,12 @@
         "Benjamin Matschke",
         "Anthony Várilly-Alvarado"
       ],
-      "unplaced_no_geocode_in_region": 3
+      "unplaced_no_geocode_in_region": 2
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 39,
-      "drawn_count": 39,
+      "stated_count": 40,
+      "drawn_count": 40,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -192,6 +193,7 @@
         "Attila Bérczes",
         "P. A. García-Sánchez",
         "Irene I. Bouw",
+        "Borka Jadrijević",
         "Boris Adamczewski",
         "Nikolai G. Moshchevitin",
         "Evelina Viada",
@@ -200,12 +202,12 @@
         "Robert F. Tichy",
         "M. N. Huxley"
       ],
-      "unplaced_no_geocode_in_region": 5
+      "unplaced_no_geocode_in_region": 4
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 19,
-      "drawn_count": 19,
+      "stated_count": 20,
+      "drawn_count": 20,
       "match": true,
       "names": [
         "Tianze Wang",
@@ -226,9 +228,10 @@
         "Isao Wakabayashi",
         "Yu Yasufuku",
         "Kurt Mahler",
+        "Shinichi Mochizuki",
         "Alina Ostafe"
       ],
-      "unplaced_no_geocode_in_region": 2
+      "unplaced_no_geocode_in_region": 1
     },
     {
       "file": "14_top100_other.png",
@@ -247,6 +250,9 @@
     "openalex": 37,
     "legacy_gb_cache": 39,
     "verified:2026-06-20(Claude,web)": 12,
-    "verified:2026-06-15(Claude,web; main campus)": 2
+    "verified:2026-06-15(Claude,web; main campus)": 2,
+    "https://openalex.org/I117015748:mgpschool2026-07-04": 1,
+    "https://openalex.org/I92251255:mgpschool2026-07-04": 1,
+    "https://openalex.org/I22299242:mgpschool2026-07-04": 1
   }
 }
