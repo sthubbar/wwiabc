@@ -1,23 +1,22 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 93,
-  "n_unplaced_no_geocode": 7,
+  "n_placed": 94,
+  "n_unplaced_no_geocode": 6,
   "n_unplaced_no_institution": 0,
   "unplaced": [
     "#12 Weiping Li [-]",
     "#56 D. Eric Freeman [-]",
     "#78 Karsten Müller [-]",
-    "#80 Michael A. Bean [-]",
-    "#82 Philipp Habegger [University of Basel]",
-    "#86 P. Vasco [-]",
-    "#88 Paul M. Voutier [-]"
+    "#81 Philipp Habegger [University of Basel]",
+    "#85 P. Vasco [-]",
+    "#87 Paul M. Voutier [-]"
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 93,
-      "drawn_count": 93,
+      "stated_count": 94,
+      "drawn_count": 94,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -112,9 +111,10 @@
         "M. N. Huxley",
         "Benjamin Matschke",
         "Alina Ostafe",
-        "Anthony Várilly-Alvarado"
+        "Anthony Várilly-Alvarado",
+        "Constantin M. Petridi"
       ],
-      "unplaced_no_geocode_in_region": 7
+      "unplaced_no_geocode_in_region": 6
     },
     {
       "file": "11_top100_north_america.png",
@@ -153,12 +153,12 @@
         "Benjamin Matschke",
         "Anthony Várilly-Alvarado"
       ],
-      "unplaced_no_geocode_in_region": 2
+      "unplaced_no_geocode_in_region": 1
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 40,
-      "drawn_count": 40,
+      "stated_count": 41,
+      "drawn_count": 41,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -200,7 +200,8 @@
         "Sebastian Heintze",
         "Frédéric Campana",
         "Robert F. Tichy",
-        "M. N. Huxley"
+        "M. N. Huxley",
+        "Constantin M. Petridi"
       ],
       "unplaced_no_geocode_in_region": 4
     },
@@ -247,7 +248,7 @@
     }
   ],
   "geocode_sources": {
-    "openalex": 37,
+    "openalex": 38,
     "legacy_gb_cache": 39,
     "verified:2026-06-20(Claude,web)": 12,
     "verified:2026-06-15(Claude,web; main campus)": 2,
