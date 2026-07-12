@@ -1,22 +1,24 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 94,
-  "n_unplaced_no_geocode": 6,
+  "n_placed": 92,
+  "n_unplaced_no_geocode": 8,
   "n_unplaced_no_institution": 0,
   "unplaced": [
     "#12 Weiping Li [-]",
+    "#49 Jose Arnaldo B. Dris [-]",
     "#56 D. Eric Freeman [-]",
     "#77 Karsten Müller [-]",
     "#81 Philipp Habegger [University of Basel]",
     "#85 Paul M. Voutier [-]",
-    "#87 P. Vasco [-]"
+    "#87 P. Vasco [-]",
+    "#100 Constantin M. Petridi [-]"
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 94,
-      "drawn_count": 94,
+      "stated_count": 92,
+      "drawn_count": 92,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -66,7 +68,6 @@
         "Wolfgang M. Schmidt",
         "Volker Ziegler",
         "Dominik Barth",
-        "Jose Arnaldo B. Dris",
         "Andreas Wenz",
         "Maurice Mignotte",
         "Si Duc Quang",
@@ -111,10 +112,9 @@
         "M. N. Huxley",
         "Alina Ostafe",
         "Benjamin Matschke",
-        "Anthony Várilly-Alvarado",
-        "Constantin M. Petridi"
+        "Anthony Várilly-Alvarado"
       ],
-      "unplaced_no_geocode_in_region": 6
+      "unplaced_no_geocode_in_region": 8
     },
     {
       "file": "11_top100_north_america.png",
@@ -156,8 +156,8 @@
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 41,
-      "drawn_count": 41,
+      "stated_count": 40,
+      "drawn_count": 40,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -199,15 +199,14 @@
         "Sebastian Heintze",
         "Frédéric Campana",
         "Robert F. Tichy",
-        "M. N. Huxley",
-        "Constantin M. Petridi"
+        "M. N. Huxley"
       ],
       "unplaced_no_geocode_in_region": 4
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 21,
-      "drawn_count": 21,
+      "stated_count": 20,
+      "drawn_count": 20,
       "match": true,
       "names": [
         "Tianze Wang",
@@ -219,7 +218,6 @@
         "Akinari Hoshi",
         "Wenxu Ge",
         "S. G. Dani",
-        "Jose Arnaldo B. Dris",
         "Si Duc Quang",
         "Stephan Baier",
         "Veekesh Kumar",
@@ -232,7 +230,7 @@
         "Shinichi Mochizuki",
         "Alina Ostafe"
       ],
-      "unplaced_no_geocode_in_region": 1
+      "unplaced_no_geocode_in_region": 2
     },
     {
       "file": "14_top100_other.png",
@@ -248,8 +246,8 @@
     }
   ],
   "geocode_sources": {
-    "openalex": 37,
-    "legacy_gb_cache": 35,
+    "openalex": 34,
+    "legacy_gb_cache": 36,
     "verified:2026-06-20(Claude,web)": 13,
     "verified:2026-06-15(Claude,web; main campus)": 3,
     "verified:web (Claude,2026-07-11)": 3,
