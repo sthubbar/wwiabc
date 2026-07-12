@@ -118,8 +118,8 @@
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 30,
-      "drawn_count": 30,
+      "stated_count": 29,
+      "drawn_count": 29,
       "match": true,
       "names": [
         "Shabnam Akhtari",
@@ -128,7 +128,6 @@
         "Jeffrey D. Vaaler",
         "Roger C. Baker",
         "Wade Hindes",
-        "John Voight",
         "Kirti Joshi",
         "Trevor D. Wooley",
         "Min Ru",
@@ -207,13 +206,14 @@
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 20,
-      "drawn_count": 20,
+      "stated_count": 21,
+      "drawn_count": 21,
       "match": true,
       "names": [
         "Tianze Wang",
         "Igor E. Shparlinski",
         "Julie Tzu-Yueh Wang",
+        "John Voight",
         "Roger J. Cook",
         "Quanwu Mu",
         "Akinari Hoshi",
@@ -249,9 +249,10 @@
   ],
   "geocode_sources": {
     "openalex": 37,
-    "legacy_gb_cache": 40,
-    "verified:2026-06-20(Claude,web)": 12,
-    "verified:2026-06-15(Claude,web; main campus)": 2,
+    "legacy_gb_cache": 35,
+    "verified:2026-06-20(Claude,web)": 13,
+    "verified:2026-06-15(Claude,web; main campus)": 3,
+    "verified:web (Claude,2026-07-11)": 3,
     "https://openalex.org/I117015748:mgpschool2026-07-04": 1,
     "https://openalex.org/I92251255:mgpschool2026-07-04": 1,
     "https://openalex.org/I22299242:mgpschool2026-07-04": 1
