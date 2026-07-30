@@ -9,6 +9,34 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script id="wwi-sort-types">
+/* DASH-ABSOLUTE SORT TYPES, REGISTERED SITE-WIDE (Steve 2026-07-30).
+   These two order types were previously registered inside the Top 100 page's
+   own ready() block, so no other page could use them. Every table that now
+   exposes a sortable numeric column holding an honest dash (In Memoriam Rank,
+   Genealogy PhD year, the source-rank columns) needs them, so they are
+   registered once here, immediately after DataTables loads and before any
+   page script runs. Semantics are unchanged: -asc maps a dash to +Infinity and
+   -desc maps it to -Infinity, so a dash sinks to the BOTTOM in BOTH sort
+   directions. This is the existing mechanism, not a new one. */
+(function () {
+  if (!window.jQuery || !jQuery.fn.dataTable) return;
+  function num(x) { var n = parseFloat(x); return isNaN(n) ? null : n; }
+  var ext = jQuery.fn.dataTable.ext.type.order;
+  ext['dash-abs-asc'] = ext['ysp-abs-asc'] = function (a, b) {
+    var na = (a === '-') ? Infinity : num(a);
+    var nb = (b === '-') ? Infinity : num(b);
+    if (na === null) na = Infinity; if (nb === null) nb = Infinity;
+    return na - nb;
+  };
+  ext['dash-abs-desc'] = ext['ysp-abs-desc'] = function (a, b) {
+    var na = (a === '-') ? -Infinity : num(a);
+    var nb = (b === '-') ? -Infinity : num(b);
+    if (na === null) na = -Infinity; if (nb === null) nb = -Infinity;
+    return nb - na;
+  };
+})();
+</script>
 <meta property="og:title" content="Recent papers - Who&#x27;s Who in abc Conjecture Research">
 <meta property="og:description" content="A directory of the researchers most active on the abc conjecture, ranked from arXiv preprint output, OpenAlex citation data, and zbMATH MSC classifications.">
 <meta property="og:type" content="website">
@@ -89,6 +117,30 @@
    the table is wide. nowrap only, so short values stay on one line. (Steve test
    2026-06-30.) */
 #top100tbl th.dt-type-numeric,#top100tbl td.dt-type-numeric,#top100tbl th.num-col,#top100tbl td.num-col,#top100tbl th.rtcol,#top100tbl td.rtcol,#institutions th.dt-type-numeric,#institutions td.dt-type-numeric,#institutions th.num-col,#institutions td.num-col,#institutions th.rtcol,#institutions td.rtcol{white-space:nowrap;}
+/* TABLE-FORMAT STANDARDIZATION (Steve 2026-07-30). The four Top 100 table
+   conventions above were scoped to #top100tbl and #institutions only, so every
+   other table on the site (location / region listings, In Memoriam, Genealogy,
+   Recent papers, Most cited) rendered without them: numeric columns fell back
+   to left alignment, the sort arrow sat in a pocket of trailing whitespace, the
+   header text could touch the arrow, and the leading Rank / # column carried
+   DataTables' full left gutter. The SAME rules are therefore repeated here for
+   EVERY DataTables table on the site, matched on the shared "display" class the
+   engine puts on all of them.
+     1. sort arrow pulled to the column edge (removes the whitespace to its right)
+     2. 24px reserved on every header cell (breathing room before the arrow)
+     3. numeric / rank-like columns (.num-col, .rtcol, auto .dt-type-numeric)
+        right-aligned on BOTH the th and the td, padding-left 4px (this is what
+        removes the left gutter on a leading Rank / # column), so integers,
+        dashes and [bracketed] values all line up under the header
+     4. nowrap on those columns
+   The overlap matrix is explicitly excluded: its header cells are centred
+   site-name columns inside a drawn bracket, with their own padding, and a 24px
+   right reserve would break that centring. */
+table.display:not(.overlap-table) thead th span.dt-column-order{right:3px;}
+table.display:not(.overlap-table) thead th{padding-right:24px;}
+table.display:not(.overlap-table) th.dt-type-numeric,table.display:not(.overlap-table) th.num-col,table.display:not(.overlap-table) th.rtcol{text-align:right;padding-left:4px;padding-right:24px;}
+table.display:not(.overlap-table) td.dt-type-numeric,table.display:not(.overlap-table) td.num-col,table.display:not(.overlap-table) td.rtcol{text-align:right;padding-left:4px;padding-right:4px;}
+table.display:not(.overlap-table) th.dt-type-numeric,table.display:not(.overlap-table) td.dt-type-numeric,table.display:not(.overlap-table) th.num-col,table.display:not(.overlap-table) td.num-col,table.display:not(.overlap-table) th.rtcol,table.display:not(.overlap-table) td.rtcol{white-space:nowrap;}
 .col-glossary{margin:0.2rem 0 0.7rem 0;}
 .col-glossary li{margin:0.12rem 0;}
 .search-count{color:#555;font-size:0.95rem;margin:0.5rem 0 0.6rem 0;}
@@ -119,24 +171,24 @@
 <p>Showing 11 papers, ranked by the Top 100 standing of their authors then by recency. Authors who appear in the Top 100 are shown in bold.</p>
 
 <table id="rl" class="display compact stripe hover" style="width:100%">
-<thead><tr><th title="Position in this list">#</th><th title="The paper; click to read it">Title</th><th title="Authors; ranked Top 100 authors link to their profiles">Authors</th><th title="Publication date">Published</th><th title="The best Top 100 rank among the paper's authors">Best rank</th></tr></thead>
+<thead><tr><th class="num-col" title="Position in this list">#</th><th title="The paper; click to read it">Title</th><th title="Authors; ranked Top 100 authors link to their profiles">Authors</th><th class="num-col" title="Publication date">Published</th><th class="num-col" title="The best Top 100 rank among the paper's authors">Best rank</th></tr></thead>
 <tbody>
-<tr><td style='text-align:center' data-order='1'>1</td><td><a href="https://arxiv.org/abs/2602.06956v1">Towards Lang--Vojta via Degeneration</a></td><td>Ryan C. Chen, <a href="people/natalia-garcia-fritz"><strong>Natalia Garcia-Fritz</strong></a>, Siddharth Mathur, <a href="people/hector-pasten"><strong>Hector Pasten</strong></a></td><td>2026-02</td><td style='text-align:center' data-order='4'>#4</td></tr>
-<tr><td style='text-align:center' data-order='2'>2</td><td><a href="https://arxiv.org/abs/2601.04284v2">Sobre los teoremas de Shafarevich y Siegel</a></td><td><a href="people/hector-pasten"><strong>Hector Pasten</strong></a></td><td>2026-01</td><td style='text-align:center' data-order='4'>#4</td></tr>
-<tr><td style='text-align:center' data-order='3'>3</td><td><a href="https://arxiv.org/abs/2511.01669v1">Quadratic points on double planes</a></td><td>Nathan Chen, Ben Church, <a href="people/hector-pasten"><strong>Hector Pasten</strong></a>, Isabel Vogt</td><td>2025-11</td><td style='text-align:center' data-order='4'>#4</td></tr>
-<tr><td style='text-align:center' data-order='4'>4</td><td><a href="https://arxiv.org/abs/2512.03498v1">Arithmetic progressions in sumsets of geometric progressions</a></td><td><a href="people/michael-a-bennett"><strong>Michael A. Bennett</strong></a></td><td>2025-12</td><td style='text-align:center' data-order='7'>#7</td></tr>
-<tr><td style='text-align:center' data-order='5'>5</td><td><a href="https://arxiv.org/abs/2510.14067v1">Preperiodic integers for $x^d+c$ in large degree</a></td><td>John R. Doyle, <a href="people/wade-hindes"><strong>Wade Hindes</strong></a></td><td>2025-10</td><td style='text-align:center' data-order='15'>#15</td></tr>
-<tr><td style='text-align:center' data-order='6'>6</td><td><a href="https://arxiv.org/abs/2508.05795v1">On the factorization of iterates of $x^d+c$ in large degree</a></td><td><a href="people/wade-hindes"><strong>Wade Hindes</strong></a></td><td>2025-08</td><td style='text-align:center' data-order='15'>#15</td></tr>
-<tr><td style='text-align:center' data-order='7'>7</td><td><a href="https://arxiv.org/abs/2510.27603v3">The Skolem Problem in rings of positive characteristic</a></td><td><a href="people/ruiwen-dong"><strong>Ruiwen Dong</strong></a>, Doron Shafrir</td><td>2025-10</td><td style='text-align:center' data-order='21'>#21</td></tr>
-<tr><td style='text-align:center' data-order='8'>8</td><td><a href="https://arxiv.org/abs/2508.08472v2">Wieferich primes in number fields and the conjectures of Ankeny--Artin--Chowla and Mordell</a></td><td>Nic Fellini, <a href="people/m-ram-murty"><strong>M. Ram Murty</strong></a></td><td>2025-08</td><td style='text-align:center' data-order='27'>#27</td></tr>
-<tr><td style='text-align:center' data-order='9'>9</td><td><a href="https://arxiv.org/abs/2510.04156v1">Arithmetic holonomy bounds and effective Diophantine approximation</a></td><td>Frank Calegari, <a href="people/vesselin-dimitrov"><strong>Vesselin Dimitrov</strong></a>, Yunqing Tang</td><td>2025-10</td><td style='text-align:center' data-order='39'>#39</td></tr>
-<tr><td style='text-align:center' data-order='10'>10</td><td><a href="https://arxiv.org/abs/2604.03745v1">On higher dimensional integrality and multiplicative dependence in semigroup algebraic dynamics</a></td><td>Jorge Mello, <a href="people/yu-yasufuku"><strong>Yu Yasufuku</strong></a></td><td>2026-04</td><td style='text-align:center' data-order='46'>#46</td></tr>
-<tr><td style='text-align:center' data-order='11'>11</td><td><a href="https://arxiv.org/abs/2605.18348v1">Sum of consecutive powers as a perfect power</a></td><td><a href="people/angelos-koutsianas"><strong>Angelos Koutsianas</strong></a>, Nikos Tzanakis</td><td>2026-05</td><td style='text-align:center' data-order='60'>#60</td></tr>
+<tr><td class='num-col' data-order='1'>1</td><td><a href="https://arxiv.org/abs/2602.06956v1">Towards Lang--Vojta via Degeneration</a></td><td>Ryan C. Chen, <a href="people/natalia-garcia-fritz"><strong>Natalia Garcia-Fritz</strong></a>, Siddharth Mathur, <a href="people/hector-pasten"><strong>Hector Pasten</strong></a></td><td class="num-col" data-order="2026-02">2026-02</td><td class="num-col" data-order="4">#4</td></tr>
+<tr><td class='num-col' data-order='2'>2</td><td><a href="https://arxiv.org/abs/2601.04284v2">Sobre los teoremas de Shafarevich y Siegel</a></td><td><a href="people/hector-pasten"><strong>Hector Pasten</strong></a></td><td class="num-col" data-order="2026-01">2026-01</td><td class="num-col" data-order="4">#4</td></tr>
+<tr><td class='num-col' data-order='3'>3</td><td><a href="https://arxiv.org/abs/2511.01669v1">Quadratic points on double planes</a></td><td>Nathan Chen, Ben Church, <a href="people/hector-pasten"><strong>Hector Pasten</strong></a>, Isabel Vogt</td><td class="num-col" data-order="2025-11">2025-11</td><td class="num-col" data-order="4">#4</td></tr>
+<tr><td class='num-col' data-order='4'>4</td><td><a href="https://arxiv.org/abs/2512.03498v1">Arithmetic progressions in sumsets of geometric progressions</a></td><td><a href="people/michael-a-bennett"><strong>Michael A. Bennett</strong></a></td><td class="num-col" data-order="2025-12">2025-12</td><td class="num-col" data-order="7">#7</td></tr>
+<tr><td class='num-col' data-order='5'>5</td><td><a href="https://arxiv.org/abs/2510.14067v1">Preperiodic integers for $x^d+c$ in large degree</a></td><td>John R. Doyle, <a href="people/wade-hindes"><strong>Wade Hindes</strong></a></td><td class="num-col" data-order="2025-10">2025-10</td><td class="num-col" data-order="15">#15</td></tr>
+<tr><td class='num-col' data-order='6'>6</td><td><a href="https://arxiv.org/abs/2508.05795v1">On the factorization of iterates of $x^d+c$ in large degree</a></td><td><a href="people/wade-hindes"><strong>Wade Hindes</strong></a></td><td class="num-col" data-order="2025-08">2025-08</td><td class="num-col" data-order="15">#15</td></tr>
+<tr><td class='num-col' data-order='7'>7</td><td><a href="https://arxiv.org/abs/2510.27603v3">The Skolem Problem in rings of positive characteristic</a></td><td><a href="people/ruiwen-dong"><strong>Ruiwen Dong</strong></a>, Doron Shafrir</td><td class="num-col" data-order="2025-10">2025-10</td><td class="num-col" data-order="21">#21</td></tr>
+<tr><td class='num-col' data-order='8'>8</td><td><a href="https://arxiv.org/abs/2508.08472v2">Wieferich primes in number fields and the conjectures of Ankeny--Artin--Chowla and Mordell</a></td><td>Nic Fellini, <a href="people/m-ram-murty"><strong>M. Ram Murty</strong></a></td><td class="num-col" data-order="2025-08">2025-08</td><td class="num-col" data-order="27">#27</td></tr>
+<tr><td class='num-col' data-order='9'>9</td><td><a href="https://arxiv.org/abs/2510.04156v1">Arithmetic holonomy bounds and effective Diophantine approximation</a></td><td>Frank Calegari, <a href="people/vesselin-dimitrov"><strong>Vesselin Dimitrov</strong></a>, Yunqing Tang</td><td class="num-col" data-order="2025-10">2025-10</td><td class="num-col" data-order="39">#39</td></tr>
+<tr><td class='num-col' data-order='10'>10</td><td><a href="https://arxiv.org/abs/2604.03745v1">On higher dimensional integrality and multiplicative dependence in semigroup algebraic dynamics</a></td><td>Jorge Mello, <a href="people/yu-yasufuku"><strong>Yu Yasufuku</strong></a></td><td class="num-col" data-order="2026-04">2026-04</td><td class="num-col" data-order="46">#46</td></tr>
+<tr><td class='num-col' data-order='11'>11</td><td><a href="https://arxiv.org/abs/2605.18348v1">Sum of consecutive powers as a perfect power</a></td><td><a href="people/angelos-koutsianas"><strong>Angelos Koutsianas</strong></a>, Nikos Tzanakis</td><td class="num-col" data-order="2026-05">2026-05</td><td class="num-col" data-order="60">#60</td></tr>
 </tbody>
 </table>
 <script>
 $(document).ready(function() {
-  $('#rl').DataTable({ paging: false, info: false, lengthChange: false, searching: false, order: [[0, 'asc']] });
+  $('#rl').DataTable({ paging: false, info: false, lengthChange: false, searching: false, order: [[0, 'asc']], autoWidth: false, columnDefs: [{ targets: [0, 4], type: 'dash-abs' }] });
 });
 </script>
 
@@ -146,23 +198,23 @@ Results are filtered to the Mathematics field (OpenAlex field 26) and ranked by 
 <p class="muted">The Top 100 ranking is designed to capture prominent, currently active researchers. If an author in this table is not linked to a profile, it is usually because they are deceased or less active than the researchers in the ranking, not because they are less significant to the field.</p>
 
 <table id="mc" class="display compact stripe hover" style="width:100%">
-<thead><tr><th title="Position by citation count">#</th><th title="The paper; click to find it via Google Scholar">Title</th><th title="Authors; ranked Top 100 authors link to their profiles">Authors</th><th title="Publication year">Year</th><th title="Citation count">Citations</th></tr></thead>
+<thead><tr><th class="num-col" title="Position by citation count">#</th><th title="The paper; click to find it via Google Scholar">Title</th><th title="Authors; ranked Top 100 authors link to their profiles">Authors</th><th class="num-col" title="Publication year">Year</th><th class="num-col" title="Citation count">Citations</th></tr></thead>
 <tbody>
-<tr><td style='text-align:center' data-order='1'>1</td><td><a href="https://scholar.google.com/scholar?q=Wieferich%27s%20criterion%20and%20the%20abc-conjecture">Wieferich&#x27;s criterion and the abc-conjecture</a> <a class="doi-link" href="https://doi.org/10.1016/0022-314x(88)90019-4">DOI</a></td><td><a href="people/joseph-h-silverman"><strong>Joseph H. Silverman</strong></a></td><td>1988</td><td style='text-align:right' data-order='191'>191</td></tr>
-<tr><td style='text-align:center' data-order='2'>2</td><td><a href="https://scholar.google.com/scholar?q=On%20the%20practical%20solution%20of%20the%20Thue%20equation">On the practical solution of the Thue equation</a> <a class="doi-link" href="https://doi.org/10.1016/0022-314x(89)90014-0">DOI</a></td><td>Nikos Tzanakis; <a href="people/benne-de-weger"><strong>B.M.M. de Weger</strong></a></td><td>1989</td><td style='text-align:right' data-order='156'>156</td></tr>
-<tr><td style='text-align:center' data-order='3'>3</td><td><a href="https://scholar.google.com/scholar?q=Solving%20Thue%20Equations%20of%20High%20Degree">Solving Thue Equations of High Degree</a> <a class="doi-link" href="https://doi.org/10.1006/jnth.1996.0129">DOI</a></td><td>Yuri Bilu; Guillaume Hanrot</td><td>1996</td><td style='text-align:right' data-order='111'>111</td></tr>
-<tr><td style='text-align:center' data-order='4'>4</td><td><a href="https://scholar.google.com/scholar?q=Bounds%20for%20the%20solutions%20of%20Thue-Mahler%20equations%20and%20norm%20form%20equations">Bounds for the solutions of Thue-Mahler equations and norm form equations</a> <a class="doi-link" href="https://doi.org/10.4064/aa-74-3-273-292">DOI</a></td><td><a href="people/yann-bugeaud"><strong>Yann Bugeaud</strong></a>; <a href="people/kalman-gyory"><strong>Kálmán Győry</strong></a></td><td>1996</td><td style='text-align:right' data-order='84'>84</td></tr>
-<tr><td style='text-align:center' data-order='5'>5</td><td><a href="https://scholar.google.com/scholar?q=On%20the%20number%20of%20solutions%20of%20polynomial%20congruences%20and%20Thue%20equations">On the number of solutions of polynomial congruences and Thue equations</a> <a class="doi-link" href="https://doi.org/10.1090/s0894-0347-1991-1119199-x">DOI</a></td><td><a href="people/cameron-l-stewart"><strong>C. L. Stewart</strong></a></td><td>1991</td><td style='text-align:right' data-order='83'>83</td></tr>
-<tr><td style='text-align:center' data-order='6'>6</td><td><a href="https://scholar.google.com/scholar?q=Bounds%20for%20the%20solutions%20of%20S-unit%20equations%20and%20decomposable%20form%20equations">Bounds for the solutions of S-unit equations and decomposable form equations</a> <a class="doi-link" href="https://doi.org/10.4064/aa123-1-2">DOI</a></td><td><a href="people/kalman-gyory"><strong>Kálmán Győry</strong></a>; <a href="people/kunrui-yu"><strong>Kunrui Yu</strong></a></td><td>2006</td><td style='text-align:right' data-order='71'>71</td></tr>
-<tr><td style='text-align:center' data-order='7'>7</td><td><a href="https://scholar.google.com/scholar?q=%3Ci%3ES%3C/i%3E-unit%20equations%20and%20their%20applications">&lt;i&gt;S&lt;/i&gt;-unit equations and their applications</a> <a class="doi-link" href="https://doi.org/10.1017/cbo9780511897184.010">DOI</a></td><td><a href="people/jan-hendrik-evertse"><strong>Jan‐Hendrik Evertse</strong></a>; <a href="people/kalman-gyory"><strong>Kálmán Győry</strong></a>; <a href="people/cameron-l-stewart"><strong>C. L. Stewart</strong></a>; <a href="people/r-tijdeman"><strong>R. Tijdeman</strong></a></td><td>1988</td><td style='text-align:right' data-order='64'>64</td></tr>
-<tr><td style='text-align:center' data-order='8'>8</td><td><a href="https://scholar.google.com/scholar?q=S-unit%20equations%20over%20number%20fields">S-unit equations over number fields</a> <a class="doi-link" href="https://doi.org/10.1007/bf01233421">DOI</a></td><td>Hans Peter Schlickewei</td><td>1990</td><td style='text-align:right' data-order='61'>61</td></tr>
-<tr><td style='text-align:center' data-order='9'>9</td><td><a href="https://scholar.google.com/scholar?q=How%20to%20explicitly%20solve%20a%20Thue-Mahler%20equation">How to explicitly solve a Thue-Mahler equation</a></td><td>Nikos Tzanakis; de Bmm Benne Weger</td><td>1992</td><td style='text-align:right' data-order='53'>53</td></tr>
-<tr><td style='text-align:center' data-order='10'>10</td><td><a href="https://scholar.google.com/scholar?q=The%20%3Ci%3ES%3C/i%3E-unit%20equation%20over%20function%20fields">The &lt;i&gt;S&lt;/i&gt;-unit equation over function fields</a> <a class="doi-link" href="https://doi.org/10.1017/s0305004100061235">DOI</a></td><td><a href="people/joseph-h-silverman"><strong>Joseph H. Silverman</strong></a></td><td>1984</td><td style='text-align:right' data-order='44'>44</td></tr>
+<tr><td class='num-col' data-order='1'>1</td><td><a href="https://scholar.google.com/scholar?q=Wieferich%27s%20criterion%20and%20the%20abc-conjecture">Wieferich&#x27;s criterion and the abc-conjecture</a> <a class="doi-link" href="https://doi.org/10.1016/0022-314x(88)90019-4">DOI</a></td><td><a href="people/joseph-h-silverman"><strong>Joseph H. Silverman</strong></a></td><td class="num-col" data-order="1988">1988</td><td class='num-col' data-order='191'>191</td></tr>
+<tr><td class='num-col' data-order='2'>2</td><td><a href="https://scholar.google.com/scholar?q=On%20the%20practical%20solution%20of%20the%20Thue%20equation">On the practical solution of the Thue equation</a> <a class="doi-link" href="https://doi.org/10.1016/0022-314x(89)90014-0">DOI</a></td><td>Nikos Tzanakis; <a href="people/benne-de-weger"><strong>B.M.M. de Weger</strong></a></td><td class="num-col" data-order="1989">1989</td><td class='num-col' data-order='156'>156</td></tr>
+<tr><td class='num-col' data-order='3'>3</td><td><a href="https://scholar.google.com/scholar?q=Solving%20Thue%20Equations%20of%20High%20Degree">Solving Thue Equations of High Degree</a> <a class="doi-link" href="https://doi.org/10.1006/jnth.1996.0129">DOI</a></td><td>Yuri Bilu; Guillaume Hanrot</td><td class="num-col" data-order="1996">1996</td><td class='num-col' data-order='111'>111</td></tr>
+<tr><td class='num-col' data-order='4'>4</td><td><a href="https://scholar.google.com/scholar?q=Bounds%20for%20the%20solutions%20of%20Thue-Mahler%20equations%20and%20norm%20form%20equations">Bounds for the solutions of Thue-Mahler equations and norm form equations</a> <a class="doi-link" href="https://doi.org/10.4064/aa-74-3-273-292">DOI</a></td><td><a href="people/yann-bugeaud"><strong>Yann Bugeaud</strong></a>; <a href="people/kalman-gyory"><strong>Kálmán Győry</strong></a></td><td class="num-col" data-order="1996">1996</td><td class='num-col' data-order='84'>84</td></tr>
+<tr><td class='num-col' data-order='5'>5</td><td><a href="https://scholar.google.com/scholar?q=On%20the%20number%20of%20solutions%20of%20polynomial%20congruences%20and%20Thue%20equations">On the number of solutions of polynomial congruences and Thue equations</a> <a class="doi-link" href="https://doi.org/10.1090/s0894-0347-1991-1119199-x">DOI</a></td><td><a href="people/cameron-l-stewart"><strong>C. L. Stewart</strong></a></td><td class="num-col" data-order="1991">1991</td><td class='num-col' data-order='83'>83</td></tr>
+<tr><td class='num-col' data-order='6'>6</td><td><a href="https://scholar.google.com/scholar?q=Bounds%20for%20the%20solutions%20of%20S-unit%20equations%20and%20decomposable%20form%20equations">Bounds for the solutions of S-unit equations and decomposable form equations</a> <a class="doi-link" href="https://doi.org/10.4064/aa123-1-2">DOI</a></td><td><a href="people/kalman-gyory"><strong>Kálmán Győry</strong></a>; <a href="people/kunrui-yu"><strong>Kunrui Yu</strong></a></td><td class="num-col" data-order="2006">2006</td><td class='num-col' data-order='71'>71</td></tr>
+<tr><td class='num-col' data-order='7'>7</td><td><a href="https://scholar.google.com/scholar?q=%3Ci%3ES%3C/i%3E-unit%20equations%20and%20their%20applications">&lt;i&gt;S&lt;/i&gt;-unit equations and their applications</a> <a class="doi-link" href="https://doi.org/10.1017/cbo9780511897184.010">DOI</a></td><td><a href="people/jan-hendrik-evertse"><strong>Jan‐Hendrik Evertse</strong></a>; <a href="people/kalman-gyory"><strong>Kálmán Győry</strong></a>; <a href="people/cameron-l-stewart"><strong>C. L. Stewart</strong></a>; <a href="people/r-tijdeman"><strong>R. Tijdeman</strong></a></td><td class="num-col" data-order="1988">1988</td><td class='num-col' data-order='64'>64</td></tr>
+<tr><td class='num-col' data-order='8'>8</td><td><a href="https://scholar.google.com/scholar?q=S-unit%20equations%20over%20number%20fields">S-unit equations over number fields</a> <a class="doi-link" href="https://doi.org/10.1007/bf01233421">DOI</a></td><td>Hans Peter Schlickewei</td><td class="num-col" data-order="1990">1990</td><td class='num-col' data-order='61'>61</td></tr>
+<tr><td class='num-col' data-order='9'>9</td><td><a href="https://scholar.google.com/scholar?q=How%20to%20explicitly%20solve%20a%20Thue-Mahler%20equation">How to explicitly solve a Thue-Mahler equation</a></td><td>Nikos Tzanakis; de Bmm Benne Weger</td><td class="num-col" data-order="1992">1992</td><td class='num-col' data-order='53'>53</td></tr>
+<tr><td class='num-col' data-order='10'>10</td><td><a href="https://scholar.google.com/scholar?q=The%20%3Ci%3ES%3C/i%3E-unit%20equation%20over%20function%20fields">The &lt;i&gt;S&lt;/i&gt;-unit equation over function fields</a> <a class="doi-link" href="https://doi.org/10.1017/s0305004100061235">DOI</a></td><td><a href="people/joseph-h-silverman"><strong>Joseph H. Silverman</strong></a></td><td class="num-col" data-order="1984">1984</td><td class='num-col' data-order='44'>44</td></tr>
 </tbody>
 </table>
 <script>
 $(document).ready(function() {
-  $('#mc').DataTable({ paging: false, info: false, lengthChange: false, searching: false, order: [[0, 'asc']] });
+  $('#mc').DataTable({ paging: false, info: false, lengthChange: false, searching: false, order: [[0, 'asc']], autoWidth: false, columnDefs: [{ targets: [0, 3, 4], type: 'dash-abs' }] });
 });
 </script>
 

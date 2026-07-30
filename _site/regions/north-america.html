@@ -9,6 +9,34 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script id="wwi-sort-types">
+/* DASH-ABSOLUTE SORT TYPES, REGISTERED SITE-WIDE (Steve 2026-07-30).
+   These two order types were previously registered inside the Top 100 page's
+   own ready() block, so no other page could use them. Every table that now
+   exposes a sortable numeric column holding an honest dash (In Memoriam Rank,
+   Genealogy PhD year, the source-rank columns) needs them, so they are
+   registered once here, immediately after DataTables loads and before any
+   page script runs. Semantics are unchanged: -asc maps a dash to +Infinity and
+   -desc maps it to -Infinity, so a dash sinks to the BOTTOM in BOTH sort
+   directions. This is the existing mechanism, not a new one. */
+(function () {
+  if (!window.jQuery || !jQuery.fn.dataTable) return;
+  function num(x) { var n = parseFloat(x); return isNaN(n) ? null : n; }
+  var ext = jQuery.fn.dataTable.ext.type.order;
+  ext['dash-abs-asc'] = ext['ysp-abs-asc'] = function (a, b) {
+    var na = (a === '-') ? Infinity : num(a);
+    var nb = (b === '-') ? Infinity : num(b);
+    if (na === null) na = Infinity; if (nb === null) nb = Infinity;
+    return na - nb;
+  };
+  ext['dash-abs-desc'] = ext['ysp-abs-desc'] = function (a, b) {
+    var na = (a === '-') ? -Infinity : num(a);
+    var nb = (b === '-') ? -Infinity : num(b);
+    if (na === null) na = -Infinity; if (nb === null) nb = -Infinity;
+    return nb - na;
+  };
+})();
+</script>
 <meta property="og:title" content="North America - Who&#x27;s Who in abc Conjecture Research">
 <meta property="og:description" content="A directory of the researchers most active on the abc conjecture, ranked from arXiv preprint output, OpenAlex citation data, and zbMATH MSC classifications.">
 <meta property="og:type" content="website">
@@ -89,6 +117,30 @@
    the table is wide. nowrap only, so short values stay on one line. (Steve test
    2026-06-30.) */
 #top100tbl th.dt-type-numeric,#top100tbl td.dt-type-numeric,#top100tbl th.num-col,#top100tbl td.num-col,#top100tbl th.rtcol,#top100tbl td.rtcol,#institutions th.dt-type-numeric,#institutions td.dt-type-numeric,#institutions th.num-col,#institutions td.num-col,#institutions th.rtcol,#institutions td.rtcol{white-space:nowrap;}
+/* TABLE-FORMAT STANDARDIZATION (Steve 2026-07-30). The four Top 100 table
+   conventions above were scoped to #top100tbl and #institutions only, so every
+   other table on the site (location / region listings, In Memoriam, Genealogy,
+   Recent papers, Most cited) rendered without them: numeric columns fell back
+   to left alignment, the sort arrow sat in a pocket of trailing whitespace, the
+   header text could touch the arrow, and the leading Rank / # column carried
+   DataTables' full left gutter. The SAME rules are therefore repeated here for
+   EVERY DataTables table on the site, matched on the shared "display" class the
+   engine puts on all of them.
+     1. sort arrow pulled to the column edge (removes the whitespace to its right)
+     2. 24px reserved on every header cell (breathing room before the arrow)
+     3. numeric / rank-like columns (.num-col, .rtcol, auto .dt-type-numeric)
+        right-aligned on BOTH the th and the td, padding-left 4px (this is what
+        removes the left gutter on a leading Rank / # column), so integers,
+        dashes and [bracketed] values all line up under the header
+     4. nowrap on those columns
+   The overlap matrix is explicitly excluded: its header cells are centred
+   site-name columns inside a drawn bracket, with their own padding, and a 24px
+   right reserve would break that centring. */
+table.display:not(.overlap-table) thead th span.dt-column-order{right:3px;}
+table.display:not(.overlap-table) thead th{padding-right:24px;}
+table.display:not(.overlap-table) th.dt-type-numeric,table.display:not(.overlap-table) th.num-col,table.display:not(.overlap-table) th.rtcol{text-align:right;padding-left:4px;padding-right:24px;}
+table.display:not(.overlap-table) td.dt-type-numeric,table.display:not(.overlap-table) td.num-col,table.display:not(.overlap-table) td.rtcol{text-align:right;padding-left:4px;padding-right:4px;}
+table.display:not(.overlap-table) th.dt-type-numeric,table.display:not(.overlap-table) td.dt-type-numeric,table.display:not(.overlap-table) th.num-col,table.display:not(.overlap-table) td.num-col,table.display:not(.overlap-table) th.rtcol,table.display:not(.overlap-table) td.rtcol{white-space:nowrap;}
 .col-glossary{margin:0.2rem 0 0.7rem 0;}
 .col-glossary li{margin:0.12rem 0;}
 .search-count{color:#555;font-size:0.95rem;margin:0.5rem 0 0.6rem 0;}
@@ -119,47 +171,47 @@
 <p class="muted">39 researchers are based in North America; 37 researchers mapped, 2 researchers location not available (institution geocode pending).</p>
 <h2>Listing</h2>
 <table id="rtbl" class="display compact stripe hover" style="width:100%">
-<thead><tr><th title="Overall Top 100 rank, 1 is best">Rank</th><th title="The researcher; click for their profile page">Name</th><th title="Current affiliation">Institution</th><th title="Country">Country</th></tr></thead>
+<thead><tr><th class="num-col" title="Overall Top 100 rank, 1 is best">Rank</th><th title="The researcher; click for their profile page">Name</th><th title="Current affiliation">Institution</th><th class="rtcol" title="Country">Country</th></tr></thead>
 <tbody>
-<tr><td>7</td><td><a href="../people/michael-a-bennett">Michael A. Bennett</a></td><td><a href="https://www.ubc.ca/">University of British Columbia</a></td><td>CA</td></tr>
-<tr><td>11</td><td><a href="../people/ingrid-vukusic">Ingrid Vukusic</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td>CA</td></tr>
-<tr><td>15</td><td><a href="../people/wade-hindes">Wade Hindes</a></td><td><a href="https://www.txst.edu">Texas State University</a></td><td>US</td></tr>
-<tr><td>19</td><td><a href="../people/kirti-joshi">Kirti Joshi</a></td><td><a href="https://www.arizona.edu/">University of Arizona</a></td><td>US</td></tr>
-<tr><td>20</td><td><a href="../people/min-ru">Min Ru</a></td><td><a href="https://uh.edu">University of Houston</a></td><td>US</td></tr>
-<tr><td>22</td><td><a href="../people/wolfgang-m-schmidt">Wolfgang M. Schmidt</a></td><td><a href="https://www.colorado.edu/">University of Colorado Boulder</a></td><td>US</td></tr>
-<tr><td>25</td><td><a href="../people/cameron-l-stewart">Cameron L. Stewart</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td>CA</td></tr>
-<tr><td>26</td><td><a href="../people/michelle-manes">Michelle Manes</a></td><td><a href="https://aimath.org">American Institute of Mathematics</a></td><td>US</td></tr>
-<tr><td>27</td><td><a href="../people/m-ram-murty">M. Ram Murty</a></td><td><a href="https://www.queensu.ca/">Queen&#x27;s University</a></td><td>CA</td></tr>
-<tr><td>28</td><td><a href="../people/aaron-levin">Aaron Levin</a></td><td><a href="https://msu.edu/">Michigan State University</a></td><td>US</td></tr>
-<tr><td>31</td><td><a href="../people/j-mueller">J. Mueller</a></td><td><a href="https://www.fordham.edu">Fordham University</a></td><td>US</td></tr>
-<tr><td>33</td><td><a href="../people/claude-levesque">Claude Levesque</a></td><td><a href="https://www.ulaval.ca">Université Laval</a></td><td>CA</td></tr>
-<tr><td>37</td><td><a href="../people/david-mckinnon">David McKinnon</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td>CA</td></tr>
-<tr><td>39</td><td><a href="../people/vesselin-dimitrov">Vesselin Dimitrov</a></td><td><a href="https://www.caltech.edu">California Institute of Technology</a></td><td>US</td></tr>
-<tr><td>40</td><td><a href="../people/nicole-looper">Nicole Looper</a></td><td><a href="https://www.uic.edu">University of Illinois Chicago</a></td><td>US</td></tr>
-<tr><td>42</td><td><a href="../people/alexandru-zaharescu">Alexandru Zaharescu</a></td><td><a href="https://illinois.edu">University of Illinois Urbana-Champaign</a></td><td>US</td></tr>
-<tr><td>44</td><td><a href="../people/paul-vojta">Paul Vojta</a></td><td><a href="https://www.berkeley.edu">University of California, Berkeley</a></td><td>US</td></tr>
-<tr><td>45</td><td><a href="../people/prajeet-bajpai">Prajeet Bajpai</a></td><td><a href="https://www.ubc.ca/">University of British Columbia</a></td><td>CA</td></tr>
-<tr><td>47</td><td><a href="../people/matthew-satriano">Matthew Satriano</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td>CA</td></tr>
-<tr><td>48</td><td><a href="../people/bjorn-poonen">Bjorn Poonen</a></td><td><a href="https://web.mit.edu">Massachusetts Institute of Technology</a></td><td>US</td></tr>
-<tr><td>51</td><td><a href="../people/benjamin-matschke">Benjamin Matschke</a></td><td><a href="https://www.bu.edu">Boston University</a></td><td>US</td></tr>
-<tr><td>54</td><td><a href="../people/dan-abramovich">Dan Abramovich</a></td><td><a href="https://www.brown.edu">Brown University</a></td><td>US</td></tr>
-<tr><td>57</td><td><a href="../people/anthony-varilly-alvarado">Anthony Várilly-Alvarado</a></td><td><a href="https://www.rice.edu">Rice University</a></td><td>US</td></tr>
-<tr><td>58</td><td><a href="../people/joseph-h-silverman">Joseph H. Silverman</a></td><td><a href="https://www.brown.edu">Brown University</a></td><td>US</td></tr>
-<tr><td>62</td><td><a href="../people/nathan-grieve">Nathan Grieve</a></td><td><a href="https://carleton.ca/math/">Carleton University</a></td><td>CA</td></tr>
-<tr><td>63</td><td><a href="../people/ziyang-gao">Ziyang Gao</a></td><td><a href="https://www.ucla.edu">University of California, Los Angeles</a></td><td>US</td></tr>
-<tr><td>66</td><td><a href="../people/khoa-d-nguyen">Khoa D. Nguyen</a></td><td><a href="https://www.ucalgary.ca">University of Calgary</a></td><td>CA</td></tr>
-<tr><td>67</td><td><a href="../people/k-soundararajan">K. Soundararajan</a></td><td><a href="https://www.stanford.edu">Stanford University</a></td><td>US</td></tr>
-<tr><td>68</td><td><a href="../people/andrew-best">Andrew Best</a></td><td><a href="https://www.bimsa.cn">Beijing Institute of Mathematical Sciences and Applications</a></td><td>US</td></tr>
-<tr><td>69</td><td><a href="../people/andrew-bridy">Andrew Bridy</a></td><td><a href="https://www.tamu.edu/">Texas A&amp;M University</a></td><td>US</td></tr>
-<tr><td>71</td><td><a href="../people/patrick-ingram">Patrick Ingram</a></td><td><a href="https://www.yorku.ca">York University</a></td><td>CA</td></tr>
-<tr><td>73</td><td><a href="../people/thomas-j-tucker">Thomas J. Tucker</a></td><td><a href="https://www.rochester.edu">University of Rochester</a></td><td>US</td></tr>
-<tr><td>75</td><td><a href="../people/enrico-bombieri">Enrico Bombieri</a></td><td><a href="https://www.ias.edu/">Institute for Advanced Study</a></td><td>US</td></tr>
-<tr><td>82</td><td><a href="../people/machiel-van-frankenhuijsen">Machiel van Frankenhuijsen</a></td><td><a href="https://www.uvu.edu">Utah Valley University</a></td><td>US</td></tr>
-<tr><td>85</td><td><a href="../people/jean-marie-de-koninck">Jean-Marie De Koninck</a></td><td><a href="https://www.ulaval.ca">Université Laval</a></td><td>CA</td></tr>
-<tr><td>88</td><td><a href="../people/michael-filaseta">Michael Filaseta</a></td><td><a href="https://www.sc.edu/">University of South Carolina</a></td><td>US</td></tr>
-<tr><td>92</td><td><a href="../people/noam-d-elkies">Noam D. Elkies</a></td><td><a href="https://www.harvard.edu">Harvard University</a></td><td>US</td></tr>
-<tr><td>93</td><td><a href="../people/dorian-goldfeld">Dorian Goldfeld</a></td><td><a href="https://www.columbia.edu">Columbia University</a></td><td>US</td></tr>
-<tr><td>95</td><td><a href="../people/andrew-granville">Andrew Granville</a></td><td><a href="https://www.umontreal.ca">Université de Montréal</a></td><td>CA</td></tr>
+<tr><td class="num-col" data-order="7">7</td><td><a href="../people/michael-a-bennett">Michael A. Bennett</a></td><td><a href="https://www.ubc.ca/">University of British Columbia</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="11">11</td><td><a href="../people/ingrid-vukusic">Ingrid Vukusic</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="15">15</td><td><a href="../people/wade-hindes">Wade Hindes</a></td><td><a href="https://www.txst.edu">Texas State University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="19">19</td><td><a href="../people/kirti-joshi">Kirti Joshi</a></td><td><a href="https://www.arizona.edu/">University of Arizona</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="20">20</td><td><a href="../people/min-ru">Min Ru</a></td><td><a href="https://uh.edu">University of Houston</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="22">22</td><td><a href="../people/wolfgang-m-schmidt">Wolfgang M. Schmidt</a></td><td><a href="https://www.colorado.edu/">University of Colorado Boulder</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="25">25</td><td><a href="../people/cameron-l-stewart">Cameron L. Stewart</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="26">26</td><td><a href="../people/michelle-manes">Michelle Manes</a></td><td><a href="https://aimath.org">American Institute of Mathematics</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="27">27</td><td><a href="../people/m-ram-murty">M. Ram Murty</a></td><td><a href="https://www.queensu.ca/">Queen&#x27;s University</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="28">28</td><td><a href="../people/aaron-levin">Aaron Levin</a></td><td><a href="https://msu.edu/">Michigan State University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="31">31</td><td><a href="../people/j-mueller">J. Mueller</a></td><td><a href="https://www.fordham.edu">Fordham University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="33">33</td><td><a href="../people/claude-levesque">Claude Levesque</a></td><td><a href="https://www.ulaval.ca">Université Laval</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="37">37</td><td><a href="../people/david-mckinnon">David McKinnon</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="39">39</td><td><a href="../people/vesselin-dimitrov">Vesselin Dimitrov</a></td><td><a href="https://www.caltech.edu">California Institute of Technology</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="40">40</td><td><a href="../people/nicole-looper">Nicole Looper</a></td><td><a href="https://www.uic.edu">University of Illinois Chicago</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="42">42</td><td><a href="../people/alexandru-zaharescu">Alexandru Zaharescu</a></td><td><a href="https://illinois.edu">University of Illinois Urbana-Champaign</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="44">44</td><td><a href="../people/paul-vojta">Paul Vojta</a></td><td><a href="https://www.berkeley.edu">University of California, Berkeley</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="45">45</td><td><a href="../people/prajeet-bajpai">Prajeet Bajpai</a></td><td><a href="https://www.ubc.ca/">University of British Columbia</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="47">47</td><td><a href="../people/matthew-satriano">Matthew Satriano</a></td><td><a href="https://uwaterloo.ca/">University of Waterloo</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="48">48</td><td><a href="../people/bjorn-poonen">Bjorn Poonen</a></td><td><a href="https://web.mit.edu">Massachusetts Institute of Technology</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="51">51</td><td><a href="../people/benjamin-matschke">Benjamin Matschke</a></td><td><a href="https://www.bu.edu">Boston University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="54">54</td><td><a href="../people/dan-abramovich">Dan Abramovich</a></td><td><a href="https://www.brown.edu">Brown University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="57">57</td><td><a href="../people/anthony-varilly-alvarado">Anthony Várilly-Alvarado</a></td><td><a href="https://www.rice.edu">Rice University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="58">58</td><td><a href="../people/joseph-h-silverman">Joseph H. Silverman</a></td><td><a href="https://www.brown.edu">Brown University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="62">62</td><td><a href="../people/nathan-grieve">Nathan Grieve</a></td><td><a href="https://carleton.ca/math/">Carleton University</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="63">63</td><td><a href="../people/ziyang-gao">Ziyang Gao</a></td><td><a href="https://www.ucla.edu">University of California, Los Angeles</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="66">66</td><td><a href="../people/khoa-d-nguyen">Khoa D. Nguyen</a></td><td><a href="https://www.ucalgary.ca">University of Calgary</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="67">67</td><td><a href="../people/k-soundararajan">K. Soundararajan</a></td><td><a href="https://www.stanford.edu">Stanford University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="68">68</td><td><a href="../people/andrew-best">Andrew Best</a></td><td><a href="https://www.bimsa.cn">Beijing Institute of Mathematical Sciences and Applications</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="69">69</td><td><a href="../people/andrew-bridy">Andrew Bridy</a></td><td><a href="https://www.tamu.edu/">Texas A&amp;M University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="71">71</td><td><a href="../people/patrick-ingram">Patrick Ingram</a></td><td><a href="https://www.yorku.ca">York University</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="73">73</td><td><a href="../people/thomas-j-tucker">Thomas J. Tucker</a></td><td><a href="https://www.rochester.edu">University of Rochester</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="75">75</td><td><a href="../people/enrico-bombieri">Enrico Bombieri</a></td><td><a href="https://www.ias.edu/">Institute for Advanced Study</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="82">82</td><td><a href="../people/machiel-van-frankenhuijsen">Machiel van Frankenhuijsen</a></td><td><a href="https://www.uvu.edu">Utah Valley University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="85">85</td><td><a href="../people/jean-marie-de-koninck">Jean-Marie De Koninck</a></td><td><a href="https://www.ulaval.ca">Université Laval</a></td><td class="rtcol">CA</td></tr>
+<tr><td class="num-col" data-order="88">88</td><td><a href="../people/michael-filaseta">Michael Filaseta</a></td><td><a href="https://www.sc.edu/">University of South Carolina</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="92">92</td><td><a href="../people/noam-d-elkies">Noam D. Elkies</a></td><td><a href="https://www.harvard.edu">Harvard University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="93">93</td><td><a href="../people/dorian-goldfeld">Dorian Goldfeld</a></td><td><a href="https://www.columbia.edu">Columbia University</a></td><td class="rtcol">US</td></tr>
+<tr><td class="num-col" data-order="95">95</td><td><a href="../people/andrew-granville">Andrew Granville</a></td><td><a href="https://www.umontreal.ca">Université de Montréal</a></td><td class="rtcol">CA</td></tr>
 </tbody>
 </table>
 <script>
