@@ -85,7 +85,27 @@
    on THIS page, so Top 100, Institutions, In Memoriam, Genealogy (gentbl0..N),
    the reading list, Most cited and every region listing are all styled by the
    SAME rule at the SAME specificity. See _table_format_css(). */
-/* no DataTables-backed table on this page */
+/* 1. sort arrow pulled to the column edge (no trailing whitespace pocket) */
+#gentbl0 thead th span.dt-column-order,#gentbl1 thead th span.dt-column-order,#gentbl2 thead th span.dt-column-order{right:3px;}
+/* 2. 24px reserved on every header cell: breathing room before the arrow */
+#gentbl0 thead th,#gentbl1 thead th,#gentbl2 thead th{padding-right:24px;}
+/* 3. numeric / rank-like columns right-aligned on th AND td, 4px on the
+      left, which is what removes the gutter on a leading Rank / # column */
+#gentbl0 th.dt-type-numeric,#gentbl1 th.dt-type-numeric,#gentbl2 th.dt-type-numeric,#gentbl0 th.num-col,#gentbl1 th.num-col,#gentbl2 th.num-col,#gentbl0 th.rtcol,#gentbl1 th.rtcol,#gentbl2 th.rtcol{text-align:right;padding-left:4px;padding-right:24px;}
+#gentbl0 td.dt-type-numeric,#gentbl1 td.dt-type-numeric,#gentbl2 td.dt-type-numeric,#gentbl0 td.num-col,#gentbl1 td.num-col,#gentbl2 td.num-col,#gentbl0 td.rtcol,#gentbl1 td.rtcol,#gentbl2 td.rtcol{text-align:right;padding-left:4px;padding-right:4px;}
+/* 4. nowrap on those columns */
+#gentbl0 th.dt-type-numeric,#gentbl1 th.dt-type-numeric,#gentbl2 th.dt-type-numeric,#gentbl0 th.num-col,#gentbl1 th.num-col,#gentbl2 th.num-col,#gentbl0 th.rtcol,#gentbl1 th.rtcol,#gentbl2 th.rtcol,#gentbl0 td.dt-type-numeric,#gentbl1 td.dt-type-numeric,#gentbl2 td.dt-type-numeric,#gentbl0 td.num-col,#gentbl1 td.num-col,#gentbl2 td.num-col,#gentbl0 td.rtcol,#gentbl1 td.rtcol,#gentbl2 td.rtcol{white-space:nowrap;}
+/* 5. surplus distribution: shrink-pin numeric / rank-like columns to
+      their content so Name and Institution absorb the leftover width */
+#gentbl0 th.dt-type-numeric,#gentbl1 th.dt-type-numeric,#gentbl2 th.dt-type-numeric,#gentbl0 th.num-col,#gentbl1 th.num-col,#gentbl2 th.num-col,#gentbl0 th.rtcol,#gentbl1 th.rtcol,#gentbl2 th.rtcol,#gentbl0 td.dt-type-numeric,#gentbl1 td.dt-type-numeric,#gentbl2 td.dt-type-numeric,#gentbl0 td.num-col,#gentbl1 td.num-col,#gentbl2 td.num-col,#gentbl0 td.rtcol,#gentbl1 td.rtcol,#gentbl2 td.rtcol{width:1px;}
+/* 6. Ctry in-header filter: tight padding, and the select RIGHT-aligned
+      in its header cell so its right edge sits over the right-aligned
+      country codes below it whatever width the column ends up with */
+#gentbl0 thead th.ctry-th,#gentbl1 thead th.ctry-th,#gentbl2 thead th.ctry-th{padding:2px 3px !important;text-align:right;}
+#gentbl0 thead th.ctry-th select,#gentbl1 thead th.ctry-th select,#gentbl2 thead th.ctry-th select{margin:0;font-weight:400;}
+#gentbl0 thead th.ctry-th select.ctry-all,#gentbl1 thead th.ctry-th select.ctry-all,#gentbl2 thead th.ctry-th select.ctry-all{font-weight:700;}
+#gentbl0 thead th.ctry-th select option,#gentbl1 thead th.ctry-th select option,#gentbl2 thead th.ctry-th select option{font-weight:400;}
+#gentbl0 thead th.ctry-th select option[value=""],#gentbl1 thead th.ctry-th select option[value=""],#gentbl2 thead th.ctry-th select option[value=""]{font-weight:700;}
 </style>
 </head>
 <body>
@@ -107,7 +127,84 @@
 <div class="sister-bar"><a class="sister-link" href="https://wwilp.org/genealogy">wwilp</a><span class="sister-sep">|</span><span class="sister-landau-box"><span class="sister-landau-label">Landau's Problems</span><a class="sister-link" href="https://wwigb.org/genealogy">wwigb</a><a class="sister-link" href="https://wwileg.org/genealogy">wwileg</a><a class="sister-link" href="https://wwin2p1.org/genealogy">wwin2p1</a><a class="sister-link" href="https://wwitp.org/genealogy">wwitp</a></span><span class="sister-sep">|</span><span class="sister-current">wwiabc</span><span class="sister-sep">|</span><a class="sister-link" href="https://wwirh.org/genealogy">wwirh</a><form class="site-search" action="search.html" method="get" role="search"><input type="search" name="q" class="site-search-input" placeholder="Search people and institutions" aria-label="Search people and institutions across all sites" autocomplete="off"><button type="submit" class="site-search-btn">Search</button></form></div>
 <main>
 <h1>Mathematical Genealogy</h1>
-<p>A complete crawl of the advisor-student trees for this site found no qualifying close relations (an outsider must be directly tied to at least 2 of the Top 100 researchers to appear here).</p>
+<p class="subtitle">Close relations of the Top 100, by proximity score</p>
+
+<p>Every PhD mathematician has an advisor, and every advisor has an advisor. The <a href="https://genealogy.math.ndsu.nodak.edu">Mathematics Genealogy Project</a> catalogs this lineage. We use it to surface <strong>close relations</strong>: researchers not in the Top 100 by publication count, but who sit in its immediate orbit through advisor-student relationships.</p>
+
+<h2>How the proximity score works</h2>
+<p>We build one graph from the advisor and student trees of all Top 100 researchers. A close relation is an outsider directly tied (as advisor or student) to at least two Top 100 researchers. Each gets a proximity score that sums, over those direct ties, <code>101 minus the connected researcher's rank</code>. Being tied to the top of the list counts for much more than being tied to the bottom. Only direct ties count; people already in the directory and deceased mathematicians are excluded.</p>
+
+<h2>What this crawl covered</h2>
+<p>We crawled the advisor and student trees of the 66 Top 100 researchers who have an entry in the Mathematics Genealogy Project, and every node in those trees was fetched. The remaining 34 of the 100 have no entry in that database, so their lineage cannot be traced and this page cannot speak for them.</p>
+
+
+
+<h2>Level L1</h2>
+<table id="gentbl0" class="display compact stripe hover" style="width:100%">
+<thead><tr><th title="An outsider tied to at least two Top 100 researchers by advisor-student links">Name</th><th title="Where they earned the doctorate, per the Mathematics Genealogy Project">Institution</th><th class="num-col" title="Doctorate year">PhD year</th><th class="num-col" title="How many Top 100 researchers they advised or were advised by">Direct Top 100 ties</th><th class="num-col" title="Sum over ties of 101 minus the tied researcher's rank; ties to the top of the list count most">Proximity score</th></tr></thead>
+<tbody>
+<tr><td><a href="people/francesco-tropeano">Francesco Tropeano</a></td><td><a href="https://www.unical.it">Università della Calabria</a></td><td class="num-col" data-order="2023">2023</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="189">189</td></tr>
+<tr><td><a href="people/michel-laurent">Michel Laurent</a></td><td><a href="https://www.sorbonne-universite.fr">Université Pierre-et-Marie-Curie - Paris VI</a></td><td class="num-col" data-order="1982">1982</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="179">179</td></tr>
+<tr><td><a href="people/mahadi-ddamulira">Mahadi Ddamulira</a></td><td><a href="https://www.tugraz.at">Technische Universität Graz</a></td><td class="num-col" data-order="2020">2020</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="144">144</td></tr>
+<tr><td><a href="people/dijana-kreso">Dijana Kreso</a></td><td><a href="https://www.tugraz.at">Technische Universität Graz</a></td><td class="num-col" data-order="2014">2014</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="132">132</td></tr>
+</tbody></table>
+<script>
+$(document).ready(function() {
+  $('#gentbl0').DataTable({ paging: false, info: false, lengthChange: false,
+    searching: false, order: [[4, 'desc']], autoWidth: false,
+    columnDefs: [{ targets: [2, 3, 4], type: 'dash-abs' }] });
+});
+</script>
+
+<h2>Level L2</h2>
+<table id="gentbl1" class="display compact stripe hover" style="width:100%">
+<thead><tr><th title="An outsider tied to at least two Top 100 researchers by advisor-student links">Name</th><th title="Where they earned the doctorate, per the Mathematics Genealogy Project">Institution</th><th class="num-col" title="Doctorate year">PhD year</th><th class="num-col" title="How many Top 100 researchers they advised or were advised by">Direct Top 100 ties</th><th class="num-col" title="Sum over ties of 101 minus the tied researcher's rank; ties to the top of the list count most">Proximity score</th></tr></thead>
+<tbody>
+<tr><td><a href="people/edmund-hlawka">Edmund Hlawka</a></td><td><a href="https://www.univie.ac.at">Universität Wien</a></td><td class="num-col" data-order="1938">1938</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="127">127</td></tr>
+<tr><td><a href="people/frits-beukers">Frits Beukers</a></td><td><a href="https://www.leiden.edu/">Universiteit Leiden</a></td><td class="num-col" data-order="1979">1979</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="121">121</td></tr>
+<tr><td><a href="people/mario-weitzer">Mario Weitzer</a></td><td><a href="https://www.unileoben.ac.at">Montanuniversität Leoben</a></td><td class="num-col" data-order="2015">2015</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="119">119</td></tr>
+<tr><td><a href="people/tamas-herendi">Tamás Herendi</a></td><td><a href="https://unideb.hu">University of Debrecen</a></td><td class="num-col" data-order="2003">2003</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="119">119</td></tr>
+</tbody></table>
+<script>
+$(document).ready(function() {
+  $('#gentbl1').DataTable({ paging: false, info: false, lengthChange: false,
+    searching: false, order: [[4, 'desc']], autoWidth: false,
+    columnDefs: [{ targets: [2, 3, 4], type: 'dash-abs' }] });
+});
+</script>
+
+<h2>Level L3</h2>
+<table id="gentbl2" class="display compact stripe hover" style="width:100%">
+<thead><tr><th title="An outsider tied to at least two Top 100 researchers by advisor-student links">Name</th><th title="Where they earned the doctorate, per the Mathematics Genealogy Project">Institution</th><th class="num-col" title="Doctorate year">PhD year</th><th class="num-col" title="How many Top 100 researchers they advised or were advised by">Direct Top 100 ties</th><th class="num-col" title="Sum over ties of 101 minus the tied researcher's rank; ties to the top of the list count most">Proximity score</th></tr></thead>
+<tbody>
+<tr><td><a href="people/daodao-yang">Daodao Yang</a></td><td><a href="https://www.tugraz.at">Technische Universität Graz</a></td><td class="num-col" data-order="2023">2023</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="80">80</td></tr>
+<tr><td><a href="people/barry-charles-mazur">Barry Mazur</a></td><td><a href="https://www.princeton.edu">Princeton University</a></td><td class="num-col" data-order="1959">1959</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="61">61</td></tr>
+<tr><td><a href="people/gisbert-wustholz">Gisbert Wüstholz</a></td><td><a href="https://www.uni-freiburg.de">Albert-Ludwigs-Universität Freiburg im Breisgau</a></td><td class="num-col" data-order="1977">1977</td><td class="num-col" data-order="2">2</td><td class="num-col" data-order="43">43</td></tr>
+</tbody></table>
+<script>
+$(document).ready(function() {
+  $('#gentbl2').DataTable({ paging: false, info: false, lengthChange: false,
+    searching: false, order: [[4, 'desc']], autoWidth: false,
+    columnDefs: [{ targets: [2, 3, 4], type: 'dash-abs' }] });
+});
+</script>
+
+
+<h2>Notes</h2>
+<ul>
+<li><strong>Francesco Tropeano</strong> (Università della Calabria, 2023): A mathematician (PhD Università della Calabria, 2023) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Michel Laurent</strong> (Université Pierre-et-Marie-Curie - Paris VI, 1982): A mathematician (PhD Université Pierre-et-Marie-Curie - Paris VI, 1982) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Mahadi Ddamulira</strong> (Technische Universität Graz, 2020): A mathematician (PhD Technische Universität Graz, 2020) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Dijana Kreso</strong> (Technische Universität Graz, 2014): A mathematician (PhD Technische Universität Graz, 2014) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Edmund Hlawka</strong> (Universität Wien, 1938): A mathematician (PhD Universität Wien, 1938) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Frits Beukers</strong> (Universiteit Leiden, 1979): A mathematician (PhD Universiteit Leiden, 1979) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Mario Weitzer</strong> (Montanuniversität Leoben, 2015): A mathematician (PhD Montanuniversität Leoben, 2015) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Tamás Herendi</strong> (University of Debrecen, 2003): A mathematician (PhD University of Debrecen, 2003) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Daodao Yang</strong> (Technische Universität Graz, 2023): A mathematician (PhD Technische Universität Graz, 2023) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Barry Mazur</strong> (Princeton University, 1959): A mathematician (PhD Princeton University, 1959) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+<li><strong>Gisbert Wüstholz</strong> (Albert-Ludwigs-Universität Freiburg im Breisgau, 1977): A mathematician (PhD Albert-Ludwigs-Universität Freiburg im Breisgau, 1977) directly tied to 2 Top 100 researchers through advisor-student relationships in the genealogy network.</li>
+</ul>
+
 
 </main>
 <footer>
