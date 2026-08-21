@@ -5,20 +5,20 @@
   "n_unplaced_no_geocode": 14,
   "n_unplaced_no_institution": 0,
   "unplaced": [
-    "#20 Karsten Müller [-]",
-    "#27 Paul M. Voutier [Independent]",
-    "#44 Philipp Habegger [University of Basel]",
-    "#60 Andrej Dujella [University of Zagreb]",
-    "#62 Nathan Grieve [Carleton University]",
-    "#71 Francesco Amoroso [University of Caen Normandy]",
-    "#74 Patrick Ingram [York University]",
-    "#77 Yuri F. Bilu [University of Bordeaux]",
-    "#85 ZhiHua Chen [-]",
-    "#87 Kwok Chi Chim [Max Planck Society]",
-    "#91 David Masser [University of Basel]",
-    "#92 Gerhard Frey [University of Duisburg-Essen]",
-    "#95 R. C. Mason [Gonville and Caius College, University of Cambridge]",
-    "#98 Benne de Weger [Eindhoven University of Technology]"
+    "#19 Karsten Müller [-]",
+    "#26 Paul M. Voutier [Independent]",
+    "#43 Philipp Habegger [University of Basel]",
+    "#59 Andrej Dujella [University of Zagreb]",
+    "#61 Nathan Grieve [Carleton University]",
+    "#70 Francesco Amoroso [University of Caen Normandy]",
+    "#73 Patrick Ingram [York University]",
+    "#76 Yuri F. Bilu [University of Bordeaux]",
+    "#84 ZhiHua Chen [-]",
+    "#86 Kwok Chi Chim [Max Planck Society]",
+    "#90 David Masser [University of Basel]",
+    "#91 Gerhard Frey [University of Duisburg-Essen]",
+    "#94 R. C. Mason [Gonville and Caius College, University of Cambridge]",
+    "#97 Benne de Weger [Eindhoven University of Technology]"
   ],
   "maps": [
     {
@@ -31,7 +31,6 @@
         "István Gaál",
         "Umberto Zannier",
         "Hector Pasten",
-        "Florian Luca",
         "Jan-Hendrik Evertse",
         "Michael A. Bennett",
         "Amos Turchet",
@@ -112,7 +111,8 @@
         "Andrew Granville",
         "Hendrik W. Lenstra",
         "Peter Scholze",
-        "Jakob Stix"
+        "Jakob Stix",
+        "Go Yamashita"
       ],
       "unplaced_no_geocode_in_region": 14
     },
@@ -207,8 +207,8 @@
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 12,
-      "drawn_count": 12,
+      "stated_count": 13,
+      "drawn_count": 13,
       "match": true,
       "names": [
         "Igor E. Shparlinski",
@@ -222,18 +222,18 @@
         "T. N. Shorey",
         "Rafael von Känel",
         "N. Saradha",
-        "Kunrui Yu"
+        "Kunrui Yu",
+        "Go Yamashita"
       ],
       "unplaced_no_geocode_in_region": 1
     },
     {
       "file": "14_top100_other.png",
-      "stated_count": 3,
-      "drawn_count": 3,
+      "stated_count": 2,
+      "drawn_count": 2,
       "match": true,
       "names": [
         "Hector Pasten",
-        "Florian Luca",
         "Natalia Garcia-Fritz"
       ],
       "unplaced_no_geocode_in_region": 0
@@ -241,11 +241,11 @@
   ],
   "geocode_sources": {
     "openalex": 38,
-    "legacy_gb_cache": 37,
+    "legacy_gb_cache": 36,
     "verified:2026-06-20(Claude,web)": 5,
     "verified:2026-06-15(Claude,web; main campus)": 1,
     "verified:web (Claude,2026-07-11)": 1,
-    "https://openalex.org/I22299242:mgpschool2026-07-04": 1,
+    "https://openalex.org/I22299242:mgpschool2026-07-04": 2,
     "https://openalex.org/I899635006:mgpschool2026-07-04": 1,
     "https://openalex.org/I197572798:mgpschool2026-07-04": 1,
     "https://openalex.org/I114090438:mgpschool2026-07-04": 1
