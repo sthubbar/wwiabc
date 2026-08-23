@@ -1,30 +1,34 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 86,
-  "n_unplaced_no_geocode": 14,
+  "n_placed": 82,
+  "n_unplaced_no_geocode": 18,
   "n_unplaced_no_institution": 0,
   "unplaced": [
-    "#19 Karsten Müller [-]",
-    "#40 Paul M. Voutier [Independent]",
-    "#43 Philipp Habegger [University of Basel]",
-    "#58 Andrej Dujella [University of Zagreb]",
-    "#61 Nathan Grieve [Carleton University]",
-    "#70 Francesco Amoroso [University of Caen Normandy]",
-    "#72 Patrick Ingram [York University]",
-    "#76 Yuri F. Bilu [University of Bordeaux]",
-    "#84 ZhiHua Chen [-]",
-    "#86 Kwok Chi Chim [Max Planck Society]",
-    "#90 David Masser [University of Basel]",
-    "#91 Gerhard Frey [University of Duisburg-Essen]",
-    "#94 R. C. Mason [Gonville and Caius College, University of Cambridge]",
-    "#97 Benne de Weger [Eindhoven University of Technology]"
+    "#33 Wayne Peng [National Central University]",
+    "#39 Paul M. Voutier [Independent]",
+    "#42 Philipp Habegger [University of Basel]",
+    "#55 Benjamin Matschke [-]",
+    "#56 T. N. Shorey [National Institute of Advanced Studies]",
+    "#57 Andrej Dujella [University of Zagreb]",
+    "#60 Nathan Grieve [Carleton University]",
+    "#68 Andrew Bridy [-]",
+    "#69 Francesco Amoroso [University of Caen Normandy]",
+    "#71 Patrick Ingram [York University]",
+    "#73 N. Saradha [-]",
+    "#75 Yuri F. Bilu [University of Bordeaux]",
+    "#85 Kwok Chi Chim [Max Planck Society]",
+    "#89 David Masser [University of Basel]",
+    "#90 Gerhard Frey [University of Duisburg-Essen]",
+    "#93 R. C. Mason [Gonville and Caius College, University of Cambridge]",
+    "#96 Benne de Weger [Eindhoven University of Technology]",
+    "#100 Ivan Fesenko [Westlake University]"
   ],
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 86,
-      "drawn_count": 86,
+      "stated_count": 82,
+      "drawn_count": 82,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -59,7 +63,6 @@
         "J. Mueller",
         "Claude Levesque",
         "Natalia Garcia-Fritz",
-        "Wayne Peng",
         "Angelos Koutsianas",
         "Boris Adamczewski",
         "Robert F. Tichy",
@@ -79,8 +82,6 @@
         "Paul Vojta",
         "Anthony Várilly-Alvarado",
         "Shinichi Mochizuki",
-        "Benjamin Matschke",
-        "T. N. Shorey",
         "Carlo Gasbarri",
         "Joseph H. Silverman",
         "Sara Checcoli",
@@ -90,10 +91,8 @@
         "Khoa D. Nguyen",
         "Andrew Best",
         "Rafael von Känel",
-        "Andrew Bridy",
         "R. Tijdeman",
         "Thomas J. Tucker",
-        "N. Saradha",
         "Enrico Bombieri",
         "L. Hajdu",
         "Artūras Dubickas",
@@ -102,6 +101,7 @@
         "Rainer Dietmann",
         "Machiel van Frankenhuijsen",
         "Kunrui Yu",
+        "ZhiHua Chen",
         "Patrice Philippon",
         "Michael Filaseta",
         "Jean-Marie De Koninck",
@@ -114,12 +114,12 @@
         "Jakob Stix",
         "Go Yamashita"
       ],
-      "unplaced_no_geocode_in_region": 14
+      "unplaced_no_geocode_in_region": 18
     },
     {
       "file": "11_top100_north_america.png",
-      "stated_count": 37,
-      "drawn_count": 37,
+      "stated_count": 35,
+      "drawn_count": 35,
       "match": true,
       "names": [
         "Michael A. Bennett",
@@ -144,13 +144,11 @@
         "Dan Abramovich",
         "Paul Vojta",
         "Anthony Várilly-Alvarado",
-        "Benjamin Matschke",
         "Joseph H. Silverman",
         "Ziyang Gao",
         "K. Soundararajan",
         "Khoa D. Nguyen",
         "Andrew Best",
-        "Andrew Bridy",
         "Thomas J. Tucker",
         "Enrico Bombieri",
         "Machiel van Frankenhuijsen",
@@ -160,7 +158,7 @@
         "Dorian Goldfeld",
         "Andrew Granville"
       ],
-      "unplaced_no_geocode_in_region": 2
+      "unplaced_no_geocode_in_region": 4
     },
     {
       "file": "12_top100_europe.png",
@@ -207,25 +205,23 @@
     },
     {
       "file": "13_top100_asia.png",
-      "stated_count": 13,
-      "drawn_count": 13,
+      "stated_count": 11,
+      "drawn_count": 11,
       "match": true,
       "names": [
         "Julie Tzu-Yueh Wang",
         "Igor E. Shparlinski",
         "Si Duc Quang",
-        "Wayne Peng",
         "QiMing Yan",
         "Yu Yasufuku",
         "Alina Ostafe",
         "Shinichi Mochizuki",
-        "T. N. Shorey",
         "Rafael von Känel",
-        "N. Saradha",
         "Kunrui Yu",
+        "ZhiHua Chen",
         "Go Yamashita"
       ],
-      "unplaced_no_geocode_in_region": 1
+      "unplaced_no_geocode_in_region": 4
     },
     {
       "file": "14_top100_other.png",
@@ -240,7 +236,7 @@
     }
   ],
   "geocode_sources": {
-    "openalex": 38,
+    "openalex": 34,
     "legacy_gb_cache": 36,
     "verified:2026-06-20(Claude,web)": 5,
     "verified:2026-06-15(Claude,web; main campus)": 1,
