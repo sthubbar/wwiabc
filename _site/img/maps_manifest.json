@@ -1,8 +1,8 @@
 {
   "site": "abc",
   "n_top": 100,
-  "n_placed": 82,
-  "n_unplaced_no_geocode": 18,
+  "n_placed": 83,
+  "n_unplaced_no_geocode": 17,
   "n_unplaced_no_institution": 0,
   "unplaced": [
     "#33 Wayne Peng [National Central University]",
@@ -16,7 +16,6 @@
     "#69 Francesco Amoroso [University of Caen Normandy]",
     "#71 Patrick Ingram [York University]",
     "#73 N. Saradha [-]",
-    "#75 Yuri F. Bilu [University of Bordeaux]",
     "#85 Kwok Chi Chim [Max Planck Society]",
     "#89 David Masser [University of Basel]",
     "#90 Gerhard Frey [University of Duisburg-Essen]",
@@ -27,8 +26,8 @@
   "maps": [
     {
       "file": "10_top100_overview.png",
-      "stated_count": 82,
-      "drawn_count": 82,
+      "stated_count": 83,
+      "drawn_count": 83,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -94,6 +93,7 @@
         "R. Tijdeman",
         "Thomas J. Tucker",
         "Enrico Bombieri",
+        "Yuri F. Bilu",
         "L. Hajdu",
         "Artūras Dubickas",
         "P. Moree",
@@ -114,7 +114,7 @@
         "Jakob Stix",
         "Go Yamashita"
       ],
-      "unplaced_no_geocode_in_region": 18
+      "unplaced_no_geocode_in_region": 17
     },
     {
       "file": "11_top100_north_america.png",
@@ -162,8 +162,8 @@
     },
     {
       "file": "12_top100_europe.png",
-      "stated_count": 34,
-      "drawn_count": 34,
+      "stated_count": 35,
+      "drawn_count": 35,
       "match": true,
       "names": [
         "Kálmán Győry",
@@ -190,6 +190,7 @@
         "Sara Checcoli",
         "Dimitrios Poulakis",
         "R. Tijdeman",
+        "Yuri F. Bilu",
         "L. Hajdu",
         "Artūras Dubickas",
         "P. Moree",
@@ -201,7 +202,7 @@
         "Peter Scholze",
         "Jakob Stix"
       ],
-      "unplaced_no_geocode_in_region": 10
+      "unplaced_no_geocode_in_region": 9
     },
     {
       "file": "13_top100_asia.png",
@@ -236,9 +237,9 @@
     }
   ],
   "geocode_sources": {
-    "openalex": 34,
-    "legacy_gb_cache": 36,
-    "verified:2026-06-20(Claude,web)": 5,
+    "openalex": 35,
+    "verified:2026-06-20(Claude,web)": 7,
+    "legacy_gb_cache": 34,
     "verified:2026-06-15(Claude,web; main campus)": 1,
     "verified:web (Claude,2026-07-11)": 1,
     "https://openalex.org/I22299242:mgpschool2026-07-04": 2,
